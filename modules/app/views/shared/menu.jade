@@ -1,15 +1,10 @@
 block menu
   - activeMenu = 'home'
 
-if !hideMenu
-  .menu
-    nav(role="navigation")
-      ul
-        li(class=activeMenu=='home' ? "active" : "")
-          a(href=prefix + '/')
-            | Home
-        each menuItem in menu
-          li(class=activeMenu==menuItem.link ? "active" : "")
-            a(href=prefix + '/' + menuItem.link)
-              = menuItem.name
-
+.menu
+  nav(role="navigation")
+    ul
+      each menuItem in menu
+        li(class=activeMenu==menuItem.link ? "active" : "")
+          a(href=prefix + '/' + menuItem.link)
+            = menuItem.name

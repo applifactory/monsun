@@ -1,1 +1,1 @@
-var app = angular.module('Monsun', ['cb.x2js']);
+var app = angular.module('Monsun', []);

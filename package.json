@@ -17,7 +17,6 @@
     "bower": "^1.4.1",
     "cookie-session": "^1.2.0",
     "express": "^4.11.1",
-    "express-http-proxy": "^0.6.0",
     "fs-extra": "^0.18.4",
     "gm": "^1.17.0",
     "gulp": "^3.8.11",

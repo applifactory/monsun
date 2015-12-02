@@ -1,15 +1,22 @@
+@font-face
+  font-family: 'bebas-neue-web'
+  src: url('../font/bebasneue_bold-webfont.eot')
+  src: url('../font/bebasneue_bold-webfont.eot?#iefix') format('embedded-opentype'), url('/bebasneue_bold-webfont.woff2') format('woff2'), url('/font/bebasneue_bold-webfont.woff') format('woff'), url('/font/bebasneue_bold-webfont.ttf') format('truetype'), url('/font/bebasneue_bold-webfont.svg#bebas_neuebold') format('svg')
+  font-weight: bold
+  font-style: normal
+
 body
-  font-family: 'Dosis', sans-serif
-  font-size: 32px
+  font-family: 'Helvetica', sans-serif
+  font-size: 13px
   line-height: 1.4
-  color: $grayLight
+  color: $gray
 
 h1, h2, h3
   font-weight: normal
   text-align: center
 
 a
-  color: $grayLight
+  color: $gray
   text-decoration: none
   &:hover
-    color: $yellow
+    color: lighten($gray, 20%)

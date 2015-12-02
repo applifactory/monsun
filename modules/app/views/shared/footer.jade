@@ -1,0 +1,6 @@
+footer(role="navigation")
+  ul
+    each menuItem in footer
+      li(class=activeMenu==menuItem.link ? "active" : "")
+        a(href=prefix + '/' + menuItem.link)
+          = menuItem.name

@@ -5,20 +5,26 @@ module.exports = {
     prefix: '',
     menu: [
       {
-        name: 'Projects',
-        link: 'projects'
+        name: 'Architecture',
+        link: 'architecture'
       },
       {
-        name: 'Solutions',
-        link: 'solutions'
+        name: 'Interiors',
+        link: 'interiors'
       },
       {
-        name: 'About us',
-        link: 'about-us'
+        name: 'Visualizations',
+        link: 'visualizations'
+      }
+    ],
+    footer: [
+      {
+        name: 'Offer',
+        link: 'offer'
       },
       {
-        name: 'Blog',
-        link: 'blog'
+        name: 'Studio',
+        link: 'studio'
       },
       {
         name: 'Contact',
@@ -75,20 +81,26 @@ module.exports = {
     prefix: '/pl',
     menu: [
       {
-        name: 'Projekty',
-        link: 'projekty'
+        name: 'Architektura',
+        link: 'architektura'
       },
       {
-        name: 'Rozwiazania',
-        link: 'rozwiazania'
+        name: 'Wnętrza',
+        link: 'wnetrza'
       },
       {
-        name: 'O nas',
-        link: 'o-nas'
+        name: 'Wizualizacje',
+        link: 'wizualizacje'
+      }
+    ],
+    footer: [
+      {
+        name: 'Oferta',
+        link: 'oferta'
       },
       {
-        name: 'Blog',
-        link: 'blog'
+        name: 'Studio',
+        link: 'studio'
       },
       {
         name: 'Kontakt',
@@ -124,21 +136,6 @@ module.exports = {
       message: 'Wiadomość',
       send: 'Wyślij',
       contactThanks: 'Dziękujemy za Twoją wiadomość!'
-    },
-    sectors: [
-      {
-        id: 1,
-        name: 'Office & workplace'
-      }, {
-        id: 2,
-        name: 'Retail & leisure'
-      }, {
-        id: 3,
-        name: 'Residential & workplace'
-      }, {
-        id: 4,
-        name: 'Masterplanning & regeneration'
-      }
-    ]
+    }
   }
 };
