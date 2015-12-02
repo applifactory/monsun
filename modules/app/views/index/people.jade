@@ -1,0 +1,51 @@
+extends ../layouts/app.jade
+
+block menu
+  - activeMenu = prefix == '/pl' ? 'ludzie' : 'people'
+
+block content
+  .people(ng-controller=isAdmin ? "PeopleController" : null, ng-init=isAdmin ? "init('#{prefix ? prefix : '/en'}')" : null)
+
+    .title
+      h2= text.people
+
+    .list
+      .container
+        .claim(data-text=isAdmin ? "#{prefix}/people/claim" : null) !{getText(prefix+"/people/claim")}
+        .about(data-text=isAdmin ? "#{prefix}/people/about" : null) !{getText(prefix+"/people/about")}
+
+        if isAdmin
+          .tools
+            .button(ng-click="newPerson()") New person
+
+        ul
+          each person in people
+            li.person(id=person.link, data-id=isAdmin ? person._id : null)
+              if isAdmin
+                .image(data-person-id="#{person._id}")
+                  img(src=person.image ? "/fx/#{person.image.file}" : "/person.jpg")
+                  .tools
+                    .button(ngf-select="", ngf-change="upload($files, #{person._id})", accept="image/*", ng-class="{disabled: isUploading}") Upload image
+                  .linkedin
+                    span(href="#", ng-click="editLinkedin(#{person._id})", data-linkedin="#{person.linkedIn}")
+                      i.icon-linkedin
+              else
+                .image
+                  if person.image
+                    img(src="/fx/#{person.image.file}")
+                  else
+                    img(src="/person.jpg")
+                  if person.linkedIn
+                    .linkedin
+                      a(href="#{person.linkedIn}", target="_blank")
+                        i.icon-linkedin
+              .content
+                .title(data-text="name/#{person._id}", on-update="update(attr, value)") !{person.name}
+                div(data-text="description/#{person._id}", on-update="update(attr, value)", editor) !{person.description}
+                if isAdmin
+                  .tools.delete
+                    .button.danger(ng-click="deleteperson('#{person._id}')") Delete person
+
+      .container
+        footer
+          a.button(href="#{prefix}/#{link.contact}")= text.contactUs

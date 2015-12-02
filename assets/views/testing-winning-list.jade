@@ -1,0 +1,23 @@
+.articles(ng-class="{testing: mode=='testing', winning: mode=='winning'}")
+  .container
+    .article-list
+      h2(ng-if="mode=='testing'") Przetestuj
+      h2(ng-if="mode=='winning'") Wygraj
+      ul
+        li(ng-repeat="article in articles")
+          a(ui-sref="admin.article({id: article._id})")
+            .image(ng-if="article.image", ng-style="{backgroundImage: 'url(/fx/p-{{article.image}})'}")
+            .image(ng-if="!article.image")
+            .title {{article.title}}
+    .sidebar
+      .tools
+        form.ui-kit
+          h2
+            | Nowy
+            = ' '
+            span(ng-if="mode=='testing'") test
+            span(ng-if="mode=='winning'") konkurs
+          input(ng-model="newArticleTitle", placeholder="Tytuł...")
+          .button.block.small.fill(ng-click="createArticle(newArticleTitle)", ng-class="{disabled: !newArticleTitle}")
+            i.icon-plus-squared
+            | Dodaj

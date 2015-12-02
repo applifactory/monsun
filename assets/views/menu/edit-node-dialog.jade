@@ -1,0 +1,9 @@
+.ui-kit
+  form(ng-class="{loading: isLoading}")
+    label
+      span Nazwa elementu
+      input(ng-model="node.name")
+    .actions
+      .button.primary.fill.small(ng-click="save()", ng-class="{disabled: !node.name}") Zapisz
+      .button.danger.fill.small(click-confirm="delete()", confirm="Czy chcesz usunąć element <strong>{{node.name}}</strong> i wszystkie powiązane z nim treści?") Usuń
+      .button.fill.small(ng-click="closeThisDialog()") Anuluj

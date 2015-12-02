@@ -1,0 +1,18 @@
+.about-us
+  .container > .tools
+    margin-top: 2.75em
+    margin-bottom: 0
+    text-align: center
+  li
+    .tools
+      text-align: right
+      visibility: hidden
+      .button
+        background: $red
+        font-size: 0.45em
+        padding: 0.5em 0.75em
+        &:hover
+          background: lighten($red, 20%)
+    &:hover
+      .tools
+        visibility: visible

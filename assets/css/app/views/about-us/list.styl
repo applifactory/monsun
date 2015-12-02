@@ -1,0 +1,72 @@
+.about-us
+  .title
+    &::before
+      background: #F6F6F6
+  .list
+    overflow: hidden
+    background: white
+    padding-top: 2em
+    .person
+      margin-top: 2em
+    .more
+      text-align: right
+      a
+        font-size: 0.5em
+    .claim
+      font-size: 0.8437em
+      font-weight: bold
+      margin-bottom: 2em
+    ul
+      list-style: none
+      margin: 2em 0 0
+      padding: 0
+      li
+        margin: 3em 0
+        .title
+          color: $yellow
+          font-size: 0.8475em
+          margin: 1em 0
+        .content
+          font-size: 0.59375em
+          overflow: hidden
+          p
+            margin: 0
+          .image
+            +size($smallScreen/2)
+              float: left
+              width: 30%
+              margin: 0 1em 1em 0
+            +size($smallScreen)
+              width: 20%
+            img
+              width: 100%
+        &.paragraph
+          position: relative
+        &.citation
+          +size($smallScreen)
+            margin-left: 20%
+          .content
+            background: #C6C7C6
+            color: white
+            font-weight: bold
+            font-size: 0.75em
+            padding: 0.5em 1em
+            overflow: visible
+            position: relative
+            margin-top: 50px
+            &::before
+              content: ''
+              display: block
+              width: 54px
+              height: 38px
+              background: url(../citation.png)
+              position: absolute
+              top: -45px
+              left: 0
+          .author
+            text-align: right
+            font-size: 0.5em
+            margin-top: 1em
+            line-height: 1.1
+            p
+              margin: 0

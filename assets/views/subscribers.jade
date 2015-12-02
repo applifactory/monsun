@@ -1,0 +1,25 @@
+.subscribers
+  .container.ui-kit
+    article
+      h2
+        | Subskrybenci&nbsp;
+        small {{article.title}}
+      table
+        thead
+          tr
+            th Email
+            th(ng-if="article.type=='testing'") Powód
+            th Data wpisu
+        tbody
+          tr(ng-repeat="subscriber in article.subscribers")
+            td {{subscriber.email}}
+            td(ng-if="article.type=='testing'", ng-bind-html="subscriber.reason|nl2br")
+            td {{subscriber.subscribeDate | date:'yyyy-MM-dd HH:mm:ss'}}
+          tr(ng-if="article.subscribers.length==0")
+            td.empty(ng-if="article.type=='testing'", colspan="3") Brak subskrybentów
+            td.empty(ng-if="article.type!='testing'", colspan="2") Brak subskrybentów
+
+
+    .sidebar
+      .tools
+        .button.fill.small(ui-sref="admin.article({id: articleId})") Powrót

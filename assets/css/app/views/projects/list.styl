@@ -1,0 +1,59 @@
+.projects
+  .title
+    &::before
+      background: #C6C7C6
+  .list
+    background: #ffffff
+    text-align: center
+    padding-top: 1.5em
+    .claim
+      text-align: left
+    cf()
+    .filters
+      margin: 2em 0 1em
+      +size($smallScreen)
+        cf()
+        .dropdown
+          col(1/2, cycle: 2, gutter: 10)
+
+    ul.list-items
+      list-style: none
+      padding: 0
+      overflow: hidden
+      li
+        font-size: 0.4375em
+        margin-bottom: 4em
+        +size($smallScreen/3*2)
+          col(1/2, cycle: 2)
+        +size($smallScreen)
+          col(1/3, cycle: 3, uncycle: 2, gutter: 5)
+        img
+          width: 100%
+          display: block
+          margin-bottom: 1em
+        .name, .description
+          text-align: left
+        .name
+          font-weight: bold
+        a:hover
+          color: $yellowDark
+        .image
+          position: relative
+        &:hover
+          .image
+            &::after
+              content: ''
+              display: block
+              position: absolute
+              background: rgba($orange, 0.35) url(../zoom.png) no-repeat center
+              top: 15px
+              bottom: 15px
+              left: 15px
+              right: 15px
+
+
+    .container
+      & > a
+        clear: both
+        display: inline-block
+        font-size: 0.75em

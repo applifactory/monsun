@@ -1,0 +1,38 @@
+.site-wrapper
+  background: white
+  overflow: hidden
+  padding-top: 2em
+  .content
+    .post-header
+      .post-title
+        text-align: left
+
+  .blog-header
+    margin-bottom: 2em
+    h1, h2
+      text-align: left
+      font-weight: normal
+    h1
+      color: $grayLight
+
+  .post-content
+    font-size: 0.75em
+    h1, h2, h3, h4, h5, h6
+      text-align: left
+  .sidebar
+    display: none
+  +size($smallScreen)
+    main
+      margin-right: 320px
+    .sidebar
+      display: block
+      width: 280px
+      position: absolute
+      right: 20px
+      top: 104px
+  +size($largeScreen)
+    width: $largeScreen
+    margin: 0 auto
+
+.search-results-info
+  margin-top: 40px

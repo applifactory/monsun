@@ -1,0 +1,60 @@
+extends ../layouts/app.jade
+
+block content
+  .home
+    .slider
+      .slide.active
+        .content
+          h1 !{text.sliderTitle}
+          h2(data-text=isAdmin ? "#{prefix}/home/slide1" : null) !{getText(prefix+"/home/slide1")}
+      .slide
+        .content
+          h1 !{text.sliderTitle}
+          h2(data-text=isAdmin ? "#{prefix}/home/slide2" : null) !{getText(prefix+"/home/slide2")}
+      .slide
+        .content
+          h1 !{text.sliderTitle}
+          h2(data-text=isAdmin ? "#{prefix}/home/slide3" : null) !{getText(prefix+"/home/slide3")}
+      ul.nav
+        li.active 1
+        li 2
+        li 3
+
+    .about-us
+      .container
+        .content(data-text=isAdmin ? "#{prefix}/home/about" : null) !{getText(prefix+"/home/about")}
+        a(href=prefix+'/'+link.aboutUs)= text.more
+
+    .solutions
+      .container
+        h2= text.architecturalSolutions
+        ul
+          each solution in solutions
+            li
+              a(href=prefix+'/'+link.solutions+'#'+solution.link)
+                .name= solution.name
+                .description= solution.claim
+        a(href=prefix+'/'+link.solutions)= text.more
+
+    .projects
+      .container
+        h2= text.projects
+        .claim(data-text=isAdmin ? "#{prefix}/home/projects" : null) !{getText(prefix+"/home/projects")}
+        ul
+          each project in projects
+            li
+              a(href="#{prefix}/#{link.projects}/#{project.link}/#{project._id}")
+                .image
+                  - image = project.images && project.images.length ? project.images[0] : null
+                  if image
+                    img(src="/fx/s-#{image.file}")
+                  else
+                    img(src="/project.jpg")
+                .name #{project.name}
+                .description !{truncate(project.description)}
+        a(href=prefix+'/'+link.projects)= text.more
+
+    .blog
+      .container
+        h2= text.latestPosts
+        ul(blog-posts)

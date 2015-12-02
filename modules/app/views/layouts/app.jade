@@ -1,0 +1,29 @@
+doctype html
+html
+  block variables
+    - var bodyClass = 'app'
+  head
+    link(href='http://fonts.googleapis.com/css?family=Work+Sans:400,700&subset=latin,latin-ext', rel='stylesheet', type='text/css')
+    link(rel='stylesheet', href='/assets/app.min.css')
+    if isAdmin
+      link(rel='stylesheet', href='/assets/admin.min.css')
+    include ../shared/fonts.jade
+    meta(content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no", name="viewport")
+    if isAdmin
+      script(src="/assets/admin.js")
+    else
+      script(src="/assets/app.js")
+    block title
+      title monsunstudio.com
+    block head
+  body(ng-app=isAdmin ? 'MonsunAdmin' : 'Monsun')
+
+    include ../shared/admin-header.jade
+    include ../shared/header.jade
+
+    block content
+
+    include ../shared/footer.jade
+
+    - if ( settings.env == 'development' )
+      script(src="//localhost:35729/livereload.js")

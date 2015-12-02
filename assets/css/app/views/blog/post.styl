@@ -1,0 +1,72 @@
+.blog
+  article.post
+    position: relative
+    padding-left: 18px
+    border-left: solid 1px #EEEDED
+    border-bottom: none
+    box-sizing: border-box
+    width: auto
+    max-width: none
+    margin: 40px 20px 100px 120px
+    &.search-result
+      margin-left: 0
+    &::after
+      display: none
+    img
+      max-width: 100%
+    h1.post-title, h2.post-title
+      margin: 0.5em 0 0.75em
+      position: relative
+      top: 8px
+      a
+        background: #F5F5F5
+        color: #444444
+        text-transform: uppercase
+        padding: 5px 10px
+        transition: none
+        &:hover
+          color: $yellow
+          transition: none
+    header.post-header
+      .tags
+        text-align: center
+        font-size: 16px
+        color: transparent
+        position: absolute
+        top: -4px
+        left: 50%
+        transform: translate(-50%, 0)
+        a
+          display: inline-block
+          color: white
+          background: $yellow
+          padding: 2px 4px
+          border: solid 2px white
+          &:hover
+            background: lighten($yellow, 15%)
+      .info
+        width: 80px
+        position: absolute
+        top: 0
+        left: -100px
+        .date
+          color: white
+          background: $yellow
+          text-transform: uppercase
+          padding: 0 5px
+          strong
+            display: block
+        .comments
+          display: none
+      .author
+        color: #9B9D9F
+        text-transform: uppercase
+        font-size: 12px
+    .post-footer
+      .share
+        position: static
+        margin: 0 auto
+        text-align: center
+        a
+          &:hover
+            color: $yellow

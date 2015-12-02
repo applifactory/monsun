@@ -1,0 +1,40 @@
+.article
+  .container.ui-kit
+    article(ng-class="{'testing-details': article.type == 'testing'}")
+      h2(ng-if="!article.type") Artykuł
+      h2(ng-if="article.type=='winning'") Wygrywaj
+      h2(ng-if="article.type=='testing'") Testowanie
+      .content
+        label
+          | Tytuł
+          input(type="text", ng-model="article.title")
+
+        text-angular(ng-model="article.text", ta-toolbar="[['bold','italics', 'underline', 'strikeThrough', 'ul', 'ol', 'insertLink']]")
+
+    .sidebar
+      .tools
+        label(ng-class="{loading: isUploading}")
+          | Obrazek
+          .image(ngf-select="", ngf-change="upload($files)", accept="image/*")
+            img(ng-if="article.image", ng-src="fx/p-{{article.image}}", alt="")
+            i.icon-picture
+        label(ng-if="article.type != 'static'")
+          | Data publikacji
+          span.hide(ng-click="hideArticle($event)", ng-if="article.publishDate") ukryj artykuł
+          date-time(ng-model="article.publishDate")
+        label(ng-if="article.type == 'winning'")
+          | Data zakończenia
+          span.hide(ng-click="removeDeadline($event)", ng-if="article.deadlineDate") usuń datę
+          date-time(ng-model="article.deadlineDate")
+        label(ng-if="article.type == 'testing' || article.type == 'winning'")
+          | Adres strony sponsora
+          input(ng-model="article.websiteUrl", placeholder="www.sponsor.com")
+        label(ng-if="article.type == 'testing' || article.type == 'winning'")
+          | Adres Facebooka sponsora
+          input(ng-model="article.facebookUrl", placeholder="www.facebook.com/sponsor")
+        .button.fill.block(ng-click="save()", ng-class="{disabled: !article.title, primary: article.type!='testing', success: article.type=='testing'}") Zapisz zmiany
+        a.button.fill.block.small(ng-click="cancel()") Anuluj
+        br
+        .button.fill.block.small.primary(ui-sref="admin.subscribers({id: articleId})", ng-if="article.type != 'static'") Przeglądaj subskrybentów
+        br
+        .button.fill.danger.block.small(click-confirm="delete()", confirm="Czy chcesz usunąć ten element?", ng-if="article.type != 'static'") Usuń

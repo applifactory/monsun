@@ -1,0 +1,22 @@
+.solutions
+  .tools
+    text-align: right
+    margin-top: 1.5em
+    &.delete
+      visibility: hidden
+  li
+    &:hover
+      .tools
+        &.delete
+          visibility: visible
+  .solution
+    > .tools
+      margin-top: 0
+      margin-bottom: 2.5em
+      clear: both
+      .button
+        background: $red
+        font-size: 0.45em
+        padding: 0.5em 0.75em
+        &:hover
+          background: lighten($red, 20%)

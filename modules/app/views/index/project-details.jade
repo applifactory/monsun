@@ -1,0 +1,74 @@
+extends ../layouts/app.jade
+
+block menu
+  - activeMenu = prefix == '/pl' ? 'projekty' : 'projects'
+
+block content
+  .projects
+
+    .title
+      h2= text.projects
+
+    .details(ng-controller=isAdmin ? "ProjectDetailsController" : null, ng-init=isAdmin ? "init('#{prefix ? prefix : '/en'}', #{project._id}, '#{prefix}/#{link.projects}')" : null)
+      .container
+        .nav
+          a(href=prefix+'/'+link.projects)= text.backToAllProjects
+        .preview(project-preview)
+          if isAdmin
+            .tools
+              .button(ngf-select="", ngf-change="upload($files)", accept="image/*", ng-class="{disabled: isUploading}") Add image
+              .button.delete(ng-click="deleteProject(true)") Delete project
+            .thumbs(data-images="#{JSON.stringify(project.images)}", ng-sortable="sortConfig")
+              .img(ng-repeat="image in images")
+                i.icon-cancel(ng-click="deleteImage(image, $index)")
+                img(ng-src="/fx/thumb-{{image.file}}")
+          else
+            .image
+              if project.images && project.images.length
+                - image = project.images[0]
+                img(src="/fx/#{image.file}")
+            .thumbs
+              each image in project.images
+                .img
+                  img(src="/fx/thumb-#{image.file}")
+        .info
+          dl
+            if isAdmin
+              dt= text.project
+              dd(data-text="name", on-update="update(attr, value)") !{project.name}
+              dt= text.client
+              dd(data-text="customer", on-update="update(attr, value)") !{project.customer}
+              dt= text.description
+              dd(data-text="description", on-update="update(attr, value)", editor) !{project.description}
+              dt= text.status
+              dd(data-text="status", on-update="update(attr, value)", editor) !{project.status}
+              dt= text.role
+              dd(data-text="role", on-update="update(attr, value)", editor) !{project.role}
+              dt Sector
+              dd
+                .dropdown(data-name="sector", selection=project.sector)
+                  span Sector
+                  ul.options
+                    each sector in sectors
+                      li(data-id=sector.id)= sector.name
+              dt Solution
+              dd
+                .dropdown(data-name="solution", selection=project.solution)
+                  span monsunstudio.com Solutions
+                  ul.options
+                    each solution in solutions
+                      li(data-id=solution._id) #{solution.name}
+            else
+              dt= text.project
+              dd !{project.name}
+              dt= text.client
+              dd !{project.customer}
+              dt= text.description
+              dd !{project.description}
+              dt= text.status
+              dd !{project.status}
+              dt= text.role
+              dd !{project.role}
+      .container
+        footer
+          a.button(href="#{prefix}/#{link.contact}")= text.contactUs

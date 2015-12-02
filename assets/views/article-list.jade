@@ -1,0 +1,20 @@
+
+.articles
+  .container
+    .article-list
+      h2 {{node.name}}
+      ul
+        li(ng-repeat="article in node.articles")
+          a(ui-sref="admin.article({id: article._id})")
+            .image(ng-if="article.image", ng-style="{backgroundImage: 'url(/fx/p-{{article.image}})'}")
+            .image(ng-if="!article.image")
+            .title {{article.title}}
+            .description(ng-bind-html="article.text|truncateHtml:100")
+    .sidebar
+      .tools
+        form.ui-kit
+          h2 Nowy artykuł
+          input(ng-model="newArticleTitle", placeholder="Tytuł artykułu...")
+          .button.block.small.fill(ng-click="createArticle(newArticleTitle)", ng-class="{disabled: !newArticleTitle}")
+            i.icon-plus-squared
+            | Dodaj

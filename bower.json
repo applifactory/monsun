@@ -1,0 +1,42 @@
+{
+  "name": "Monsun Studio",
+  "version": "0.0.1",
+  "authors": [
+    "Matthew Witalinski <mateusz@applifactory.pl>"
+  ],
+  "description": "33 Inch Webapp",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "source",
+    "src",
+    "spec",
+    ".bowerrc",
+    ".gitignore",
+    ".jshintignore",
+    ".jshintrc",
+    ".bower.json",
+    "bower.json",
+    "gruntfile.js",
+    "package.js",
+    "package.json",
+    "LICENSE",
+    "README.md"
+  ],
+  "dependencies": {
+    "angular": "~1.4.1",
+    "angular-sanitize": "~1.4.3",
+    "angular-x2js": "~0.2.0",
+    "moment": "~2.10.6",
+    "ng-file-upload": "~5.0.9",
+    "ngDialog": "~0.4.0",
+    "Sortable": "~1.2.1",
+    "textAngular": "~1.4.2",
+    "ui-router": "~0.2.15"
+  }
+}

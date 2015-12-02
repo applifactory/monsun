@@ -1,0 +1,8 @@
+.ui-kit
+  form(ng-class="{loading: isLoading}")
+    label
+      span Nazwa elementu
+      input(ng-model="newItem")
+    .actions
+      .button.primary.fill.small(ng-click="save()", ng-class="{disabled: !newItem}") Zapisz
+      .button.fill.small(ng-click="closeThisDialog()") Anuluj

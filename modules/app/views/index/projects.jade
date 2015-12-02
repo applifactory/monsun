@@ -1,0 +1,47 @@
+extends ../layouts/app.jade
+
+block menu
+  - activeMenu = prefix == '/pl' ? 'projekty' : 'projects'
+
+block content
+  .projects(ng-controller="ProjectsController", ng-init=isAdmin ? "init('#{prefix ? prefix : '/en'}')" : null)
+
+    .title
+      h2= text.projects
+
+    .list
+      .container
+        .claim(data-text=isAdmin ? "#{prefix}/projects/claim" : null)
+          | !{getText(prefix+"/projects/claim")}
+
+        if isAdmin
+          .tools
+            .button(ng-click="newProject()") New project
+        else
+          .filters
+            .dropdown(data-name="sector", persist="true")
+              span Sector
+              ul.options
+                li(data-id=-1) All
+                each sector in sectors
+                  li(data-id=sector.id)= sector.name
+
+            .dropdown(data-name="solution", persist="true")
+              span monsunstudio.com
+              ul.options
+                li(data-id=-1) All
+                each solution in solutions
+                  li(data-id=solution._id) #{solution.name}
+
+        ul.list-items
+          each project in projects
+            li(data-id=isAdmin ? project._id : null, data-sector=project.sector, data-solution=project.solution)
+              a(href="#{prefix}/#{link.projects}/#{project.link}/#{project._id}")
+                .image
+                  - image = project.images && project.images.length ? project.images[0] : null
+                  if image
+                    img(src="/fx/s-#{image.file}")
+                  else
+                    img(src="/project.jpg")
+                .name #{project.name}
+                .description !{truncate(project.description)}

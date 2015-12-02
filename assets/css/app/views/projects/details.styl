@@ -1,0 +1,48 @@
+.projects
+  .details
+    background: white
+    overflow: hidden
+    font-size: 0.83em
+    .nav
+      margin: 1.5em 0 2.5em
+    .preview
+      .image
+        margin: 0 0 2em
+        img
+          max-width: 100%
+          display: block
+          margin: 0 auto
+      .thumbs
+        cf()
+        margin-bottom: 3em
+        .img
+          margin: 0.5em
+          cursor: pointer
+          img
+            width: 100%
+            display: block
+          col(1/3, gutter: 5, cycle: 3)
+          +size($smallScreen/2)
+            col(1/4, gutter: 5, cycle: 4, uncycle: 3)
+          +size($mediumScreen)
+            col(1/5, gutter: 5, cycle: 5, uncycle: 4)
+    .info
+      dl
+        margin-top: 0
+        dt
+          color: $yellow
+        dd
+          color: $gray
+          margin: 0 0 1.5em
+          a
+            font-weight: bold
+          p
+            margin: 0
+
+    +size($smallScreen)
+      cf()
+      .preview
+        col(3/5, gutter: 5)
+      .info
+        col(2/5, gutter: 5)
+

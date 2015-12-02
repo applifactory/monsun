@@ -1,0 +1,9 @@
+.latest
+  a(href="http://issuu.com/magazynsupermama/docs/{{latest.docname}}", target="_blank")
+    img(ng-src="{{latest.cover}}")
+    .title {{latest.title}}
+ul
+  li(ng-repeat="magazine in magazines")
+    a(href="http://issuu.com/magazynsupermama/docs/{{magazine.docname}}", target="_blank")
+      img(ng-src="{{magazine.thumb}}")
+      .title {{magazine.title}}

@@ -1,0 +1,61 @@
+.home
+  .blog
+    background: url(../bg-blog.jpg) no-repeat center top
+    background-size: cover
+    text-align: center
+    padding-bottom: 0
+    cf()
+    h2
+      color: white
+    ul
+      list-style: none
+      padding: 0
+      overflow: hidden
+      margin: 3em auto 0
+      max-width: 970px
+      li
+        font-size: 0.4375em
+        margin-bottom: 4em
+        background: white
+        +size($smallScreen)
+          col(1/2, cycle: 2, gutter: 5)
+        a
+          display: block
+          position: relative
+          height: 185px
+          padding-left: 185px
+          box-sizing: border-box
+          .image
+            position: absolute
+            left: 0
+            top: 0
+            width: 185px
+            height: 185px
+            background: #ebebeb
+            background-size: cover
+            background-position: center
+            display: block
+            margin-bottom: 1em
+          .title
+            font-weight: bold
+            color: $gray
+            padding: 0.75em 1em
+            overflow: hidden
+            text-overflow: ellipsis
+            white-space: nowrap
+            text-align: left
+          .date
+            padding: 0.75em 1em
+            position: absolute
+            left: 185px
+            bottom: 0
+          &:hover
+            color: $yellowDark
+            .title, .date
+              color: $yellowDark
+
+    .container
+      & > a
+        clear: both
+        display: inline-block
+        font-size: 0.75em

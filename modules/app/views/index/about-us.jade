@@ -1,0 +1,79 @@
+extends ../layouts/app.jade
+
+block menu
+  - activeMenu = prefix == '/pl' ? 'o-nas' : 'about-us'
+
+block content
+  .about-us(ng-controller=isAdmin ? 'AboutController' : null, , ng-init=isAdmin ? "init('#{prefix ? prefix : '/en'}')" : null)
+
+    .title
+      h2= text.aboutUs
+
+    .list
+      .container
+        .about(data-text=isAdmin ? "#{prefix}/about/about" : null)
+          !{getText(prefix+"/about/about")}
+
+        if people && people.length
+          - var person = people[0]
+          .person
+            .image
+              if person.image
+                img(src="/fx/#{person.image.file}")
+              else
+                img(src="/person.jpg")
+              if person.linkedIn
+                .linkedin
+                  a(href="#{person.linkedIn}", target="_blank")
+                    i.icon-linkedin
+            .content
+              .title !{person.name}
+              div !{person.description}
+
+        if isAdmin
+          .tools
+            .button(ng-click="newItem('paragraph')") New paragraph
+            .button(ng-click="newItem('citation')") New Citation
+
+        ul
+          each about in abouts
+            if isAdmin
+              li(class=about.type, data-id=about._id)
+                if about.type == 'paragraph'
+                  .title(data-text="name/#{about._id}", on-update="update(attr, value)") !{about.name}
+                .content(data-text="description/#{about._id}", on-update="update(attr, value)", editor) !{about.description}
+                if about.type == 'citation'
+                  .author(data-text="author/#{about._id}", on-update="update(attr, value)", editor) !{about.author}
+                .tools
+                  .button(ng-click="deleteItem('#{about._id}')") Delete #{about.type}
+            else
+              li(class=about.type)
+                if about.type == 'paragraph'
+                  .title !{about.name}
+                .content !{about.description}
+                if about.type == 'citation'
+                  .author !{about.author}
+
+        if isAdmin
+          .tools
+            a.button(href="/people") Edit people
+        if people && people.length > 1
+          each person, index in people
+            if index
+              .person
+                .image
+                  if person.image
+                    img(src="/fx/#{person.image.file}")
+                  else
+                    img(src="/person.jpg")
+                  if person.linkedIn
+                    .linkedin
+                      a(href="#{person.linkedIn}", target="_blank")
+                        i.icon-linkedin
+                .content
+                  .title !{person.name}
+                  div !{person.description}
+
+      .container
+        footer
+          a.button(href="#{prefix}/#{link.contact}")= text.contactUs

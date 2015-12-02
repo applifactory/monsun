@@ -1,0 +1,14 @@
+.sidebar
+  if latestWinning && latestWinning.length
+    .prizes
+      h2 Wygraj
+      a.mini-slider(href="/wygraj")
+        each article, index in latestWinning
+          .image(style="background-image: url(/fx/p-#{article.image})", class= !index ? 'active' : '')
+  if latestTesting && latestTesting.length
+    .tests
+      h2 Przetestuj
+      a.mini-slider(href="/przetestuj")
+        each article, index in latestTesting
+          .image(style="background-image: url(/fx/p-#{article.image})", class= !index ? 'active' : '')
+  .latest-magazine

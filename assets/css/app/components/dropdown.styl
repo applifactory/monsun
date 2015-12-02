@@ -1,0 +1,47 @@
+.dropdown
+  font-size: 0.687em
+  background: #C6C7C6
+  position: relative
+  margin: 1em 0
+  &.open
+    span
+      &::after
+        transform: rotate(180deg)
+    ul.options
+      display: block
+  span, li
+    display: block
+    color: $gray
+    text-align: left
+    padding: 0.5em 0.65em 0.6em
+  span
+    position: relative
+    cursor: pointer
+    &:hover
+      color: $orange
+    &::after
+      content: ''
+      display: block
+      position: absolute
+      width: 31px
+      height: 18px
+      background: url(../chevron-down.png) no-repeat center
+      right: 18px
+      top: 18px
+  ul.options
+    list-style: none
+    margin: 0
+    padding: 0
+    background: #F6F6F6
+    position: absolute
+    top: 100%
+    left: 0
+    right: 0
+    z-index: 11
+    display: none
+    li
+      cursor: pointer
+      &.active, &:hover
+        color: $orange
+      &.active
+        background: white

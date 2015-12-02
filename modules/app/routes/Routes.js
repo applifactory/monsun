@@ -1,0 +1,46 @@
+'use strict';
+
+var express = require('express'),
+    index = require('../controllers/IndexController.js'),
+    admin = require('../controllers/AdminController.js');
+
+module.exports = function(app) {
+
+  app.use(index.authUser);
+  app.use(index.languages);
+  app.use(index.getSolutions);
+  app.use(index.helpers);
+  app.use(index.texts);
+
+  var enRouter = express.Router();
+  enRouter.route('/').get(index.index);
+  enRouter.route('/projects').get(index.projects);
+  enRouter.route('/projects/:link/:id').get(index.projectDetails);
+  enRouter.route('/solutions').get(index.solutions);
+  enRouter.route('/about-us').get(index.aboutUs);
+  enRouter.route('/people').get(index.people);
+  enRouter.route('/contact')
+    .get(index.contact)
+    .post(index.contact);
+  app.use('', enRouter);
+
+  var plRouter = express.Router();
+  plRouter.route('/').get(index.index);
+  plRouter.route('/projekty').get(index.projects);
+  plRouter.route('/projekty/:link/:id').get(index.projectDetails);
+  plRouter.route('/rozwiazania').get(index.solutions);
+  plRouter.route('/o-nas').get(index.aboutUs);
+  plRouter.route('/ludzie').get(index.people);
+  plRouter.route('/kontakt')
+    .get(index.contact)
+    .post(index.contact);
+  app.use('/pl', plRouter);
+
+  var adminRouter = express.Router();
+  adminRouter.route('')
+    .get(admin.login)
+    .post(admin.login);
+  adminRouter.route('/logout').get(admin.logout);
+  app.use('/admin', adminRouter);
+
+};

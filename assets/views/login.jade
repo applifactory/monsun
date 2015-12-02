@@ -1,0 +1,17 @@
+.login.ui-kit
+  .content
+    img(src="logo.png")
+    form(name="loginForm", ng-submit="submit()", ng-class="{loading: isLoading}", novalidate)
+      .message.danger(ng-if="loginForm.$submitted && loginForm.$invalid")
+        span {{getErrorMessage()}}
+      .message.danger(ng-if="(!loginForm.$submitted || loginForm.$valid) && loginError")
+        span {{loginError}}
+      label(ng-class="{error: loginForm.$submitted && loginForm.email.$invalid}")
+        | Email
+        input(type="email", ng-model="user.email", name="email", required)
+      label(ng-class="{error: loginForm.$submitted && loginForm.password.$invalid}")
+        | Hasło
+        input(type="password", ng-model="user.password", name="password", required)
+      button.smalls.fill.primary.block(type="submit") Zaloguj się
+
+

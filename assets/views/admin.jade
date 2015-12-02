@@ -1,0 +1,33 @@
+header
+
+  .branding
+    .container
+      h1.logo
+        a(ui-sref="admin.home") Supermama
+      .supermama
+      ul
+        li
+          a(ui-sref="admin.magazines") Najnowszy magazyn
+        li
+          a(ui-sref="admin.winning") Wygraj
+        li
+          a(ui-sref="admin.testing") Przetestuj
+      form(name="search")
+        .button.small.primary.fill(ui-sref="logout") Wyloguj
+
+  menu
+
+ui-view
+
+footer
+  .container
+    .copy
+      a.logo(href="/") Supermama
+      | &copy; <span>copyright</span> 2015
+    ul
+      li
+        a(ui-sref="admin.static({link: 'o-nas'})") o nas
+      li
+        a(ui-sref="admin.static({link: 'reklama'})") reklama
+      li
+        a(ui-sref="admin.static({link: 'kontakt'})") kontakt

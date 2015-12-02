@@ -1,0 +1,21 @@
+$smallScreen = 768px
+$mediumScreen = 992px
+$largeScreen = 1200px
+
+size($size)
+  @media screen and (min-width: $size)
+    {block}
+
+.container
+  cf()
+  width: auto
+  margin: 1em 0.5em
+  +size($smallScreen)
+    width: 750px
+    margin: 1em auto
+  +size($mediumScreen)
+    width: 970px
+    margin: 1em auto
+  +size($largeScreen)
+    width: 1170px
+    margin: 1em auto

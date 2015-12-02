@@ -1,0 +1,31 @@
+.people
+  .tools
+    text-align: center
+    margin-top: 1.5em
+    &.delete
+      visibility: hidden
+      text-align: right
+  li
+    &:hover
+      .tools
+        &.delete
+          visibility: visible
+  .person
+    .tools
+      margin: 0
+      clear: both
+      .button
+        font-size: 0.95rem
+        padding: 0.5em 0.75em
+    .image
+      position: relative
+      .tools
+        position: absolute
+        top: 10%
+        left: 0
+        right: 0
+        display: none
+      &:hover
+        .tools
+          display: block
+

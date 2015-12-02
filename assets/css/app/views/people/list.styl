@@ -1,0 +1,73 @@
+.people
+  .title
+    &::before
+      background: #F6F6F6
+  .list
+
+    background: white
+    padding-top: 2em
+
+    .claim
+      font-size: 0.8437em
+      font-weight: bold
+      margin-bottom: 2em
+
+
+    ul
+      list-style: none
+      margin: 2em 0 0
+      padding: 0
+.person
+  cf()
+  position: relative
+  margin-bottom: 3em
+  .content
+    font-size: 0.59375em
+    .title
+      color: $yellow
+      font-size: 1.5em
+      margin: 0.2em 0 0.5em
+    a
+      font-weight: bold
+    p
+      margin: 0
+  .image
+    position: relative
+    z-index: 1
+    img
+      width: 100%
+    .linkedin
+      font-size: 0.75em
+      position: relative
+      text-align: right
+      margin-top: 0.5em
+      float: right
+      a, span
+        color: $yellow
+        cursor: pointer
+        &:hover
+          color: lighten($yellow, 50%)
+      +size($smallScreen/2)
+        float: none
+        &::after
+          content: ''
+          position: absolute
+          bottom: 4px
+          left: 0
+          width: 50%
+          height: 1px
+          background: $yellow
+  +size($smallScreen/2)
+    .image
+      col(2/5)
+      margin-top: 0.45em
+    .content
+      col(3/5)
+  +size($smallScreen/2)
+    .image
+      col(1/4)
+    .content
+      col(3/4)
+
+
+

@@ -1,0 +1,14 @@
+.tools, .ngdialog
+  .button, button
+    background: $green
+    &:hover
+      background: lighten($green, 20%)
+    &.danger
+      background: $red
+      &:hover
+        background: lighten($red, 20%)
+    &.disabled
+      opacity: 0.5
+      cursor: default
+      &:hover
+        background: $green

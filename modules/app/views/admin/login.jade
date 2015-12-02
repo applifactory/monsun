@@ -1,0 +1,18 @@
+extends ../layouts/app.jade
+
+block menu
+  - hideMenu = true
+
+block content
+  .admin
+    form.login-form(action="/admin", method="POST")
+      if form && form.email
+        label.error Wrong email or password
+
+      label(for="email") Email
+      input#email(name="email", type="email", value="#{form.email||''}", required)
+
+      label(for="password") Password
+      input#password(name="password", type="password", required)
+
+      input.button(type="submit", value="Login")

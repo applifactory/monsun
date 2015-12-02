@@ -1,0 +1,7 @@
+/bower_components/
+/node_modules/
+/assets/vendors/
+/public/assets/
+/public/fx/
+/build/
+.DS_Store
