@@ -4,7 +4,7 @@ block menu
   - hideMenu = true
 
 block content
-  .admin
+  .admin.ui-kit
     form.login-form(action="/admin", method="POST")
       if form && form.email
         label.error Wrong email or password
@@ -15,4 +15,4 @@ block content
       label(for="password") Password
       input#password(name="password", type="password", required)
 
-      input.button(type="submit", value="Login")
+      input.button.block(type="submit", value="Login")

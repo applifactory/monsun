@@ -15,15 +15,18 @@ html
       script(src="/assets/app.js")
     block title
       title Monsun Studio
+    block menu
     block head
   body(ng-app=isAdmin ? 'MonsunAdmin' : 'Monsun')
 
-    include ../shared/admin-header.jade
-    include ../shared/header.jade
+    - if ( !hideMenu )
+      include ../shared/admin-header.jade
+      include ../shared/header.jade
 
     block content
 
-    include ../shared/footer.jade
+    - if ( !hideMenu )
+      include ../shared/footer.jade
 
     - if ( settings.env == 'development' )
       script(src="//localhost:35729/livereload.js")
