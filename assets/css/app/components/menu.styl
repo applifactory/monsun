@@ -3,15 +3,18 @@
     ul
       font-family: bebas-neue-web, sans-serif
       font-weight: bold
-      font-size: 1.4615em
+      font-size: (19/$em)
       text-transform: uppercase
       list-style: none
       margin: 0
       padding: 0
       text-align: center
       li
-        display: inline-block
-        margin: 2em 3em 0
+        display: block
+        margin: 0.5em 1em 0
+        +size($smallScreen)
+          display: inline-block
+          margin: 1.5em 3em 0
         a
           color: black
           &:hover

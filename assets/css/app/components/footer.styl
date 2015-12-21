@@ -1,0 +1,57 @@
+footer
+  &::after
+    content: ''
+    display: block
+    clear: both
+  .socials
+    list-style: none
+    margin: 10px 0 20px
+    padding: 0
+    text-align: center
+    li
+      padding: 0
+      display: inline-block
+      vertical-align: middle
+      margin: 0 10px
+      a
+        display: block
+        overflow: hidden
+        text-indent: -1000px
+        &:hover
+          filter: brightness(0.8)
+        &.twitter
+          background: url(../twitter.png) no-repeat
+          background-size: contain
+          width: 23px
+          height: 19px
+        &.pinterest
+          background: url(../pinterest.png) no-repeat
+          background-size: contain
+          width: 17px
+          height: 22px
+    +size($smallScreen)
+      float: left
+      margin: 12px 0 20px
+      li
+        margin: 0 30px 0 0
+
+  ul[role="navigation"]
+    list-style: none
+    margin: 0
+    padding: 0
+    text-align: center
+    li
+      padding: 0
+      display: block
+      font-family: 'bebas-neue-web'
+      font-size: (19/$em)
+      margin: 10px
+      a
+        color: #ccc
+        &:hover
+          color: darken(#ccc, 20%)
+    +size($smallScreen)
+      float: right
+      li
+        display: inline-block
+        margin: 10px 0 10px 60px
