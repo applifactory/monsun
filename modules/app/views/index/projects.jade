@@ -1,7 +1,7 @@
 extends ../layouts/app.jade
 
 block menu
-  - activeMenu = prefix == '/pl' ? 'projekty' : 'projects'
+  - activeMenu = category
 
 block content
   .projects.container(ng-controller=isAdmin ? "ProjectsController" : null, ng-init=isAdmin ? "init('#{prefix ? prefix : '/en'}')" : null)

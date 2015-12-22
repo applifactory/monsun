@@ -63,7 +63,7 @@ module.exports.projects = function(req, res) {
     .populate({path: 'images', options: { sort: 'sortOrder _id' }})
     .sort('sortOrder _id')
     .exec(function(err, projects){
-      res.render(_views+'projects', {projects: projects});
+      res.render(_views+'projects', {projects: projects, category: req.params.category });
     });
 };
 
@@ -72,7 +72,7 @@ module.exports.projectDetails = function(req, res) {
     if ( err || !project )
       res.status(404).redirect( res.locals.prefix + '/' + res.locals.link.projects );
     else
-      res.render(_views+'project-details', {project: project});
+      res.render(_views+'project-details', {project: project, category: req.params.category });
   });
 };
 
