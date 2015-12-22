@@ -25,7 +25,7 @@ module.exports = function(app) {
   plRouter.route('/').get(index.index);
   // plRouter.route('/projekty/:link/:id').get(index.projectDetails);
   // plRouter.route('/rozwiazania').get(index.solutions);
-  // plRouter.route('/o-nas').get(index.aboutUs);
+  plRouter.route('/studio').get(index.studio);
   // plRouter.route('/ludzie').get(index.people);
   plRouter.route('/oferta').get(index.offer);
   plRouter.route('/kontakt')
@@ -39,7 +39,7 @@ module.exports = function(app) {
   enRouter.route('/').get(index.index);
   // enRouter.route('/projects/:link/:id').get(index.projectDetails);
   // enRouter.route('/solutions').get(index.solutions);
-  // enRouter.route('/about-us').get(index.aboutUs);
+  enRouter.route('/studio').get(index.studio);
   // enRouter.route('/people').get(index.people);
   enRouter.route('/offer').get(index.offer);
   enRouter.route('/contact')

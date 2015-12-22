@@ -1,0 +1,23 @@
+extends ../layouts/app.jade
+
+block menu
+  - activeMenu = 'studio'
+
+block content
+  .studio.container
+
+    .section-title
+      h2(data-text=isAdmin ? "#{prefix}/studio/title" : null)
+        !{getText(prefix+"/studio/title")}
+    
+    ul.people
+      li
+        img(src="lukasz-sztuka.jpg")
+        .name Łukasz Sztuka
+      li.person
+        img(src="marcin-witalinski.jpg")
+        .name Marcin Witaliński
+        
+    .description(data-text=isAdmin ? "#{prefix}/studio/description" : null, editor=isAdmin ? "true" : null)
+      !{getText(prefix+"/studio/description")}
+    

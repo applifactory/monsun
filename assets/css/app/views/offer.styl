@@ -17,6 +17,10 @@
         color: $grayLight
         line-height: 1.75
     +size($smallScreen)
+      &::after
+        content: ''
+        display: block
+        clear: both
       li
         width: 30%
         float: left

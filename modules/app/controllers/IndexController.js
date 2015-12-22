@@ -98,20 +98,8 @@ module.exports.solutions = function(req, res) {
     });
 };
 
-module.exports.aboutUs = function(req, res) {
-  About
-    .find({ language: res.locals.language })
-    .sort('sortOrder _id')
-    .exec(function(err, abouts){
-
-      Person
-        .find({ language: res.locals.language })
-        .populate({path: 'image'})
-        .sort('sortOrder _id')
-        .exec(function(err, people){
-          res.render(_views+'about-us', {abouts: abouts, people: people});
-        });
-    });
+module.exports.studio = function(req, res) {
+  res.render(_views+'studio');
 };
 
 module.exports.offer = function(req, res) {
