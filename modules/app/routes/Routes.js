@@ -27,6 +27,7 @@ module.exports = function(app) {
   // plRouter.route('/rozwiazania').get(index.solutions);
   // plRouter.route('/o-nas').get(index.aboutUs);
   // plRouter.route('/ludzie').get(index.people);
+  plRouter.route('/oferta').get(index.offer);
   plRouter.route('/kontakt')
     .get(index.contact)
     .post(index.contact);
@@ -40,6 +41,7 @@ module.exports = function(app) {
   // enRouter.route('/solutions').get(index.solutions);
   // enRouter.route('/about-us').get(index.aboutUs);
   // enRouter.route('/people').get(index.people);
+  enRouter.route('/offer').get(index.offer);
   enRouter.route('/contact')
     .get(index.contact)
     .post(index.contact);

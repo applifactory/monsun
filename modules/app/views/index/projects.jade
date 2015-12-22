@@ -7,10 +7,9 @@ block content
   .projects.container
     //(ng-controller="ProjectsController", ng-init=isAdmin ? "init('#{prefix ? prefix : '/en'}')" : null)
 
-    .title
-      h2 Monsun Studio to pracownia projektowa łącząca działania z zakresu architektury, wnętrz oraz wizualizacji
-      //- .claim(data-text=isAdmin ? "#{prefix}/projects/claim" : null)
-      //-  | !{getText(prefix+"/projects/claim")}
+    .section-title
+      h2(data-text=isAdmin ? "#{prefix}/projects/claim" : null)
+        | !{getText(prefix+"/projects/claim")}
     .list
       .container
         

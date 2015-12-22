@@ -114,6 +114,16 @@ module.exports.aboutUs = function(req, res) {
     });
 };
 
+module.exports.offer = function(req, res) {
+  // Person
+  //   .find({ language: res.locals.language })
+  //   .populate({path: 'image'})
+  //   .sort('sortOrder _id')
+  //   .exec(function(err, people){
+  res.render(_views+'offer');
+  //  });
+};
+
 module.exports.people = function(req, res) {
   Person
     .find({ language: res.locals.language })
