@@ -32,9 +32,7 @@ app.service('ImageService', function($q, Upload, $http){
     },
     update: function(image) {
       var d = $q.defer();
-      $http.put('/api/image/' + image._id, {
-        description: image.description
-      }).success(function (data) {
+      $http.put('/api/image/' + image._id, image).success(function (data) {
         d.resolve(data);
       }).error(function(err){
         d.reject(err);

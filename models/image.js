@@ -8,6 +8,8 @@ var ImageSchema = new Schema({
   file: String,
   description: String,
   project: { type: Number, ref: 'Project', childPath: 'images' },
+  slider: Number,
+  link: String,
   sortOrder: { type: Number, default: 1000 }
 });
 

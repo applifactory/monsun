@@ -23,7 +23,7 @@ app.controller('ProjectDetailsController', function($scope, ProjectService, Imag
   }
 
   $scope.upload = function($files) {
-    if ( !$scope.isUploading && $files.length > 0 )
+    if ( !$scope.isUploading && $files.length > 0 ) {
       $scope.isUploading = true;
       ImageService.upload($files[0], 'project/' + $scope.id).then(function(image){
         $scope.images.push(image);
@@ -31,6 +31,7 @@ app.controller('ProjectDetailsController', function($scope, ProjectService, Imag
       }, function(err){
         $scope.isUploading = false;
       });
+    }
   }
 
   $scope.sortConfig = {

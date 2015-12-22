@@ -1,8 +1,19 @@
 .slider
   position: relative
+  width: 100%
+  height: 0
+  padding-bottom: (510 / 1200 * 100)%
   .slide
     height: 0
     padding-bottom: 42.5%
+    position: absolute
+    opacity: 0
+    transition: all 0.75s ease
+    display: block
+    border: none
+    &.active
+      opacity: 1
+      z-index: 2
     img
       width: 100%
   .nav
@@ -13,14 +24,25 @@
     bottom: 10px
     left: 50%
     transform: translate(-50%, 0)
+    z-index: 3
     li
       display: inline-block
-      border: solid white 2px
-      overflow: hidden
+      border: solid white 1px
+      font-size: 0
       cursor: pointer
       width: 10px
       height: 10px
       text-indent: -1000px
       margin: 3px
+      position: relative
+      &::after
+        content: ''
+        background: transparent
+        display: block
+        position: absolute
+        top: -4px
+        right: -4px
+        bottom: -4px
+        left: -4px
       &.active, &:hover
         background: white

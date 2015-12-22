@@ -7,7 +7,6 @@ app.directive('slider', function(){
       var nav = elem[0].querySelectorAll('.nav li');
       var active = 0;
 
-
       var setActive = function(index) {
         if ( active != index ) {
           slides[active].classList.remove('active');

@@ -24,11 +24,17 @@ function deleteImage(id, callback) {
 }
 
 function getSizes(model) {
-  return [
-    { mode: 'scale', width: 1800, height: 800 },
-    { mode: 'crop', width: 280, height: 320, prefix: 's' },
-    { mode: 'crop', width: 150, height: 150, prefix: 'thumb' }
-  ];
+  if ( model == 'slider' )
+    return [
+      { mode: 'crop', width: 1200, height: 510 },
+      { mode: 'crop', width: 240, height: 102, prefix: 'thumb' }
+    ];
+  else
+    return [
+      { mode: 'scale', width: 1800, height: 800 },
+      { mode: 'crop', width: 280, height: 320, prefix: 's' },
+      { mode: 'crop', width: 150, height: 150, prefix: 'thumb' }
+    ];
   return null;
 }
 
@@ -70,8 +76,13 @@ module.exports.sort = function(req, res) {
 };
 
 module.exports.update = function(req, res) {
-  if ( req.params.id && req.body.hasOwnProperty('description') ) {
-    Image.findByIdAndUpdate(req.params.id, { $set: { description: req.body.description }}, function (err, element) {
+  if ( req.params.id && ( req.body.hasOwnProperty('description') || req.body.hasOwnProperty('link') ) ) {
+    var update = {};
+    if ( req.body.hasOwnProperty('description') )
+      update.description = req.body.description;
+    if ( req.body.hasOwnProperty('link') )
+      update.link = req.body.link;
+    Image.findByIdAndUpdate(req.params.id, { $set: update }, function (err, element) {
       res.end();
     });
   } else

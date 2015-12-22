@@ -1,12 +1,26 @@
 extends ../layouts/app.jade
 
 block content
-  .home.container
-    .slider
-      .slide.active
-        img(src="http://lorempixel.com/1200/510/city/")
-      
-      ul.nav
-        li.active 1
-        li 2
-        li 3
+  
+  - sliderIndex = prefix == '/pl' ? 1 : 0
+
+  .home.container(ng-controller=isAdmin ? 'SliderController' : null)
+    if isAdmin
+      .thumbs(data-slides="#{JSON.stringify(slides)}", ng-sortable="sortConfig", data-index="#{sliderIndex}")
+        .img(ng-repeat="slide in slides", ng-click="editSlide(slide)")
+          i.icon-cancel(ng-click="deleteSlide(slide, $index, $event)")
+          img(ng-src="/fx/thumb-{{slide.file}}")
+      .tools
+        .button(ngf-select="", ngf-change="upload($files)", accept="image/*", ng-class="{disabled: isUploading}") New slide
+    else
+      .slider
+        each slide, index in slides
+          if (slide.link && slide.link.length)
+            a.slide(href="#{slide.link}", class=!index ? "active" : null)
+              img(src="/fx/#{slide.file}")
+          else
+            .slide(class=!index ? "active" : null)
+              img(src="/fx/#{slide.file}")
+        ul.nav
+          each slide, index in slides
+            li(class=!index ? "active" : null) #{index+1}

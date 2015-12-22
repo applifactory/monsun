@@ -2,9 +2,7 @@ var _views = 'app/views/index/',
     truncate = require('../../../utils/TruncateHtml'),
     Text = require('../../../models/text'),
     Project = require('../../../models/project'),
-    Solution = require('../../../models/solution'),
-    About = require('../../../models/about'),
-    Person = require('../../../models/person'),
+    Image = require('../../../models/image'),
     _ = require('underscore'),
     languages = require('../../../config/languages'),
     config = require('../../../config/config.js'),
@@ -30,17 +28,6 @@ module.exports.languages = function(req, res, next) {
   next();
 }
 
-module.exports.getSolutions = function(req, res, next) {
-  Solution
-    .find({ language: res.locals.language })
-    .populate({path: 'image'})
-    .sort('sortOrder _id')
-    .exec(function(err, solutions){
-      res.locals.solutions = solutions;
-      next();
-    });
-}
-
 module.exports.texts = function(req, res, next) {
   var texts = [];
   res.locals.getText = function(id) {
@@ -49,7 +36,6 @@ module.exports.texts = function(req, res, next) {
       if ( _text.id == id )
         text = _text.text;
     })
-    console.log(text);
     return text;
   }
   Text.find({}, function(err, _texts){
@@ -59,18 +45,19 @@ module.exports.texts = function(req, res, next) {
 }
 
 module.exports.index = function(req, res) {
-  // Project
-  //   .find({ language: res.locals.language })
-  //   .limit(6)
-  //   .populate({path: 'images', options: { sort: 'sortOrder _id' }})
-  //   .sort('sortOrder _id')
-  //   .exec(function(err, projects){
-  res.render(_views+'index', {projects: projects});
-  //  });
+
+
+  var sliderIndex = res.locals.language == 'pl' ? 1 : 0;
+
+  Image
+    .find({ slider: sliderIndex })
+    .sort('sortOrder _id')
+    .exec(function(err, slides){
+      res.render(_views+'index', {slides: slides});
+    });
 };
 
 module.exports.projects = function(req, res) {
-  console.log('#Projects: ', req.params.category);
   Project
     .find({ language: res.locals.language, category: req.params.category })
     .populate({path: 'images', options: { sort: 'sortOrder _id' }})
@@ -89,68 +76,14 @@ module.exports.projectDetails = function(req, res) {
   });
 };
 
-module.exports.solutions = function(req, res) {
-  Solution
-    .find({ language: res.locals.language })
-    .populate({path: 'image'})
-    .sort('sortOrder _id')
-    .exec(function(err, solutions){
-      res.render(_views+'solutions');
-    });
-};
-
 module.exports.studio = function(req, res) {
   res.render(_views+'studio');
 };
 
 module.exports.offer = function(req, res) {
-  // Person
-  //   .find({ language: res.locals.language })
-  //   .populate({path: 'image'})
-  //   .sort('sortOrder _id')
-  //   .exec(function(err, people){
   res.render(_views+'offer');
-  //  });
-};
-
-module.exports.people = function(req, res) {
-  Person
-    .find({ language: res.locals.language })
-    .populate({path: 'image'})
-    .sort('sortOrder _id')
-    .exec(function(err, people){
-      res.render(_views+'people', {people: people});
-    });
 };
 
 module.exports.contact = function(req, res) {
-
-  if ( req.body.name && req.body.email && req.body.message ) {
-    var title = 'Message from monsunstudio.com contact form';
-    var message = '';
-
-    message += '<strong>Sender</strong>: <br />' + req.body.name + ' <' + req.body.email + '>' + "<br /><br />";
-    message += '<strong>Message</strong>: <br />' + nl2br(req.body.message) + "<br /><br />";
-
-    var mailgun = new Mailgun( config.mailgun );
-
-    var data = {
-      from: req.body.name + ' <' + req.body.email + '>',
-      to: config.emailAddress,
-      subject: title,
-      html: message
-    }
-
-    mailgun.messages().send(data, function (err, body) {
-      if ( err )  {
-        console.error('Send mail error', err);
-        res.render(_views+'contact', {emailError: true});
-      } else {
-        console.log('Success', body);
-        res.render(_views+'contact', {emailSent: true});
-      }
-    });
-  } else {
-    res.render(_views+'contact');
-  }
+  res.render(_views+'contact');
 };

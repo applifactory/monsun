@@ -8,7 +8,6 @@ module.exports = function(app) {
 
   app.use(index.authUser);
   app.use(index.languages);
-  app.use(index.getSolutions);
   app.use(index.helpers);
   app.use(index.texts);
 
