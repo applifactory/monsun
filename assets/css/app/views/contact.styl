@@ -1,0 +1,51 @@
+.contact
+  ul
+    list-style: none
+    margin: 4em auto 5em
+    padding: 0
+    max-width: 450px
+    li
+      a
+        color: $gray
+        &:hover
+          color: lighten($gray, 30%)
+    +size($smallScreen/2)
+      &::after
+        content: ''
+        display: block
+        clear: both
+      li
+        float: left
+        width: 48%
+        line-height: 1.4
+        &:first-child
+          margin-right: 4%
+
+  .address
+    margin: 4em auto
+    max-width: 250px
+    text-align: center
+    position: relative
+    &::before
+      content: ''
+      width: 50px
+      height: 1px
+      background: #636363
+      display: block
+      margin: 0 auto 2em
+    a
+      color: $grayLight
+      &:hover
+        color: darken($grayLight, 10%)
+
+  .email
+    margin: 4em auto
+    max-width: 250px
+    background: url(/envelope.png) no-repeat center top
+    background-size: 24px 16px
+    padding-top: 30px
+    text-align: center
+    a
+      color: $grayLight
+      &:hover
+        color: darken($grayLight, 10%)

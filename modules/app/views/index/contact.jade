@@ -4,37 +4,16 @@ block menu
   - activeMenu = link.contact
 
 block content
-  .contact
-
-    .title
-      h2= text.contact
-    .content
-      .container
-        .links
-          
-        .form
-          .places
-            .place
-              .title(data-text=isAdmin ? "#{prefix}/contact/office1" : null) !{getText(prefix+"/contact/office1")}
-              .address(data-text=isAdmin ? "#{prefix}/contact/address1" : null) !{getText(prefix+"/contact/address1")}
-              .phone(data-text=isAdmin ? "#{prefix}/contact/phone1" : null) !{getText(prefix+"/contact/phone1")}
-            .place
-              .title(data-text=isAdmin ? "#{prefix}/contact/office2" : null) !{getText(prefix+"/contact/office2")}
-              .address(data-text=isAdmin ? "#{prefix}/contact/address2" : null) !{getText(prefix+"/contact/address2")}
-              .phone(data-text=isAdmin ? "#{prefix}/contact/phone2" : null) !{getText(prefix+"/contact/phone2")}
-          form(action=prefix+'/'+link.contact, method="POST")
-            if emailSent
-              .info= text.contactThanks
-            else
-              .sender
-                .name
-                  label= text.name
-                  input(name="name", type="text", required)
-                .email
-                  label Email
-                  input(name="email", type="email", required)
-              .message
-                label= text.message
-                textarea(name="message", required)
-              .submit
-                input.button(type="submit", value=text.send)
+  .contact.container
+    
+    ul
+      li(data-text=isAdmin ? "#{prefix}/contact/lukasz" : null, editor=isAdmin ? "true" : null)
+        !{getText(prefix+"/contact/lukasz")}
+      li(data-text=isAdmin ? "#{prefix}/contact/marcin" : null, editor=isAdmin ? "true" : null)
+        !{getText(prefix+"/contact/marcin")}
+        
+    .address(data-text=isAdmin ? "#{prefix}/contact/address" : null, editor=isAdmin ? "true" : null)
+      !{getText(prefix+"/contact/address")}
+      
+    .email
+      a(href="mailto:biuro@monsunstudio.com") biuro@monsunstudio.com
