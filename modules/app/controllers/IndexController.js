@@ -59,19 +59,20 @@ module.exports.texts = function(req, res, next) {
 }
 
 module.exports.index = function(req, res) {
-  Project
-    .find({ language: res.locals.language })
-    .limit(6)
-    .populate({path: 'images', options: { sort: 'sortOrder _id' }})
-    .sort('sortOrder _id')
-    .exec(function(err, projects){
-      res.render(_views+'index', {projects: projects});
-    });
+  // Project
+  //   .find({ language: res.locals.language })
+  //   .limit(6)
+  //   .populate({path: 'images', options: { sort: 'sortOrder _id' }})
+  //   .sort('sortOrder _id')
+  //   .exec(function(err, projects){
+  res.render(_views+'index', {projects: projects});
+  //  });
 };
 
 module.exports.projects = function(req, res) {
+  console.log('#Projects: ', req.params.category);
   Project
-    .find({ language: res.locals.language })
+    .find({ language: res.locals.language, category: req.params.category })
     .populate({path: 'images', options: { sort: 'sortOrder _id' }})
     .sort('sortOrder _id')
     .exec(function(err, projects){

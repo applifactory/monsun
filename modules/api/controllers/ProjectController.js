@@ -2,10 +2,11 @@ var Project = require('../../../models/project'),
     normalize = require('../../../utils/NormalizeString.js');
 
 module.exports.create = function(req, res) {
-  if ( req.body.name, req.body.language ) {
+  if ( req.body.name, req.body.category, req.body.language ) {
     var project = new Project();
     project.name = req.body.name;
     project.link = normalize(req.body.name).replace(/[^a-z0-9]+/gi, '-').replace(/^-*|-*$/g, '').toLowerCase();
+    project.category = req.body.category;
     project.language = req.body.language;
     project.save(function(err){
       if ( err )
@@ -14,6 +15,7 @@ module.exports.create = function(req, res) {
         res.json({
           id: project._id,
           name: project.name,
+          category: project.category,
           link: project.link
         });
     })

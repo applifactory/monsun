@@ -2,10 +2,10 @@ app.controller('ProjectsController', function($scope, ngDialog, ProjectService){
 
   $scope.init = function(language) {
     $scope.language = language;
-
+    $scope.category = window.location.pathname.replace(/.*\//, '');
     var list = document.querySelector('.list-items');
     var sortable = new Sortable(list, {
-      onSort: function (/**Event*/evt) {
+      onSort: function (evt) {
         var items = list.querySelectorAll('li');
         var ids = [];
         angular.forEach(items, function(item){
@@ -33,7 +33,7 @@ app.controller('ProjectsController', function($scope, ngDialog, ProjectService){
 
   $scope.createNewProject = function(newProjectName) {
     if ( newProjectName ) {
-      ProjectService.create(newProjectName, $scope.language).then(function(project){
+      ProjectService.create(newProjectName, $scope.category, $scope.language).then(function(project){
         dialog.close();
         window.location = window.location.pathname + '/' + project.link + '/' + project.id;
       }, function(){

@@ -4,8 +4,7 @@ block menu
   - activeMenu = prefix == '/pl' ? 'projekty' : 'projects'
 
 block content
-  .projects.container
-    //(ng-controller="ProjectsController", ng-init=isAdmin ? "init('#{prefix ? prefix : '/en'}')" : null)
+  .projects.container(ng-controller=isAdmin ? "ProjectsController" : null, ng-init=isAdmin ? "init('#{prefix ? prefix : '/en'}')" : null)
 
     .section-title
       h2(data-text=isAdmin ? "#{prefix}/projects/claim" : null)
@@ -18,50 +17,10 @@ block content
             .button(ng-click="newProject()") New project
         
         ul.list-items
-          li
-            a(href="#")
-              img(src="http://lorempixel.com/265/305")
-              .description 264/302
-          li
-            a(href="#")
-              img(src="http://lorempixel.com/265/305")
-              .description 264/302
-          li
-            a(href="#")
-              img(src="http://lorempixel.com/265/305")
-              .description 264/302
-          li
-            a(href="#")
-              img(src="http://lorempixel.com/265/305")
-              .description 264/302
-          li
-            a(href="#")
-              img(src="http://lorempixel.com/265/305")
-              .description 264/302
-          li
-            a(href="#")
-              img(src="http://lorempixel.com/265/305")
-              .description 264/302
-          li
-            a(href="#")
-              img(src="http://lorempixel.com/265/305")
-              .description 264/302
-          li
-            a(href="#")
-              img(src="http://lorempixel.com/265/305")
-              .description 264/302
-          li
-            a(href="#")
-              img(src="http://lorempixel.com/265/305")
-              .description 264/302
-          //- each project in projects
-          //-   li(data-id=isAdmin ? project._id : null, data-sector=project.sector, data-solution=project.solution)
-          //-     a(href="#{prefix}/#{link.projects}/#{project.link}/#{project._id}")
-          //-       .image
-          //-         - image = project.images && project.images.length ? project.images[0] : null
-          //-         if image
-          //-           img(src="/fx/s-#{image.file}")
-          //-         else
-          //-           img(src="/project.jpg")
-          //-       .name #{project.name}
-          //-       .description !{truncate(project.description)}
+          each project in projects
+            li(data-id=isAdmin ? project._id : null, data-category=project.category)
+              a(href="#{prefix}/#{project.category}/#{project.link}/#{project._id}")
+                - image = project.images && project.images.length ? project.images[0] : null
+                if image
+                  img(src="/fx/s-#{image.file}")
+                .description #{project.name}

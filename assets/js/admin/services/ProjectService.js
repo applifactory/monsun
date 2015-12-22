@@ -1,9 +1,10 @@
 app.service('ProjectService', function($http, $q){
   return {
-    create: function(name, language) {
+    create: function(name, category, language) {
       var d = $q.defer();
       $http.post('/api/project', {
         name: name,
+        category: category,
         language: language.replace('/', '')
       }).success(function(project){
         d.resolve(project);

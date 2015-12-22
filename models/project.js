@@ -12,10 +12,9 @@ var ProjectSchema = new Schema({
   description: String,
   status: String,
   role: String,
+  category: String,
   sortOrder: { type: Number, default: 1000 },
   images: [{ type: Number, ref: 'Image' }],
-  sector: { type: Number },
-  solution: { type: Number }
 });
 
 //  numeric ID for linking
