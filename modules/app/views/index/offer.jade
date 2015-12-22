@@ -10,35 +10,25 @@ block content
         !{getText(prefix+"/offer/title")}
     ul
       li
-        .title Liquorice jelly toffee 
-        .description Cupcake croissant jelly beans jelly beans marzipan jujubes. Sugar plum cotton candy carrot cake sweet chupa chups jujubes. Tootsie roll pudding jelly lollipop ice cream muffin. Pie candy canes macaroon brownie toffee. Icing chocolate cake apple pie. Jujubes sweet jelly beans sweet roll pie bonbon soufflé cake. 
-        .items 
-          | Lemon drops candy chocolate cake cake chupa chups. 
-          br
-          | Apple pie jelly pastry muffin cheesecake topping chocolate cake dragée. 
-          br
-          | Halvah wafer jelly gummi bears cake brownie tootsie roll pastry. 
-          br
-          | Croissant powder cotton candy tootsie roll cake marshmallow topping. 
+        .title(data-text=isAdmin ? "#{prefix}/offer/p1/title" : null)
+          !{getText(prefix+"/offer/p1/title")}
+        .description(data-text=isAdmin ? "#{prefix}/offer/p1/description" : null)
+          !{getText(prefix+"/offer/p1/description")}
+        .items(data-text=isAdmin ? "#{prefix}/offer/p1/items" : null)
+          !{getText(prefix+"/offer/p1/items")}
         
       li
-        .title Marshmallow pie sugar
-        .description Carrot cake tiramisu jelly fruitcake cupcake pudding liquorice carrot cake. Marzipan gummi bears wafer marzipan gummies jelly. Topping dragée chocolate cake sesame snaps cake. Cupcake cake lemon drops. Halvah wafer cake tootsie roll icing lemon drops toffee brownie. Chupa chups sweet cupcake. Marzipan jujubes caramels sugar plum tiramisu sweet marshmallow cotton candy. Lemon drops icing muffin gummies sugar plum.
-        .items 
-          | Danish bonbon dragée powder marshmallow lollipop lemon drops jujubes. 
-          br
-          | Halvah wafer jelly gummi bears cake brownie tootsie roll pastry. 
-          br
-          | Apple pie jelly pastry muffin cheesecake topping chocolate cake dragée. 
+        .title(data-text=isAdmin ? "#{prefix}/offer/p2/title" : null)
+          !{getText(prefix+"/offer/p2/title")}
+        .description(data-text=isAdmin ? "#{prefix}/offer/p2/description" : null)
+          !{getText(prefix+"/offer/p2/description")}
+        .items(data-text=isAdmin ? "#{prefix}/offer/p2/items" : null)
+          !{getText(prefix+"/offer/p2/items")}
 
       li
-        .title Chupa chups
-        .description Dragée apple pie halvah biscuit gummies jelly-o. Danish liquorice bonbon lollipop jelly-o bonbon jelly beans cheesecake. Carrot cake pastry liquorice cookie pastry chupa chups liquorice bonbon danish. Macaroon tart sweet tart carrot cake cookie tart. 
-        .items 
-          | Cheesecake bonbon bonbon sweet roll. Toffee pie cookie muffin.
-          br
-          | Chocolate bar powder gummi bears pastry cake. 
-          br
-          | Jujubes chocolate dessert candy jelly beans bear claw wafer tart fruitcake.
-          br
-          | Chocolate bar powder gummi bears pastry cake. 
+        .title(data-text=isAdmin ? "#{prefix}/offer/p3/title" : null)
+          !{getText(prefix+"/offer/p3/title")}
+        .description(data-text=isAdmin ? "#{prefix}/offer/p3/description" : null)
+          !{getText(prefix+"/offer/p3/description")}
+        .items(data-text=isAdmin ? "#{prefix}/offer/p3/items" : null)
+          !{getText(prefix+"/offer/p3/items")}
