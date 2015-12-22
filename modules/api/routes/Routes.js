@@ -50,6 +50,7 @@ module.exports = function(app) {
   app.route('/api/image/:model/:id')
     .post(imageController.upload);
   app.route('/api/image/:id')
+    .put(imageController.update)
     .delete(imageController.delete);
   app.route('/api/image')
     .put(imageController.sort)

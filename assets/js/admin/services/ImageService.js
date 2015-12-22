@@ -29,6 +29,17 @@ app.service('ImageService', function($q, Upload, $http){
     },
     delete: function(id) {
       return $http.delete('/api/image/' + id);
+    },
+    update: function(image) {
+      var d = $q.defer();
+      $http.put('/api/image/' + image._id, {
+        description: image.description
+      }).success(function (data) {
+        d.resolve(data);
+      }).error(function(err){
+        d.reject(err);
+      });
+      return d.promise;
     }
   }
 })

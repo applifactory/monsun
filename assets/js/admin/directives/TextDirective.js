@@ -16,6 +16,11 @@ app.directive('text', function($compile, TextService){
         },
         post: function(scope, iElement, iAttrs, controller) {
           var id = iAttrs.text;
+          iAttrs.$observe('ngModel', function(val){
+            var model = scope.$eval(val);
+            if ( model )
+              scope.content = model;
+          });
           scope.$watch('content', function(text, oldText){
             if (text != oldText) {
               if ( iAttrs.onUpdate )

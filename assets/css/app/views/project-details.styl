@@ -1,0 +1,67 @@
+.project-details
+
+  .details
+    margin: 2em 0
+    .title
+      font-size: (23/$em)
+      color: $gray
+      margin-bottom: 0.5em
+    .year
+      color: $grayLight
+      display: inline
+      margin: 0 0.4em
+    .description
+      font-size: 1em
+      padding-top: 0.5em
+      p
+        margin-top: 0
+        &:empty
+          display: none
+    +size($smallScreen)
+      .title, .description
+        width: 49%
+        float: left
+      .title
+        margin-right: 2%
+        span, .year
+          display: block
+          margin: 0
+      .description
+        float: right
+      &::after
+        content: ''
+        display: block
+        clear: both
+
+  .img
+    margin: 2em 0
+    img
+      max-width: 100%
+
+  .info
+    dl
+      &::before
+        content: ''
+        display: block
+        height: 1px
+        width: 50px
+        background: $gray
+        margin: 2em 0 1em
+      &::after
+        content: ''
+        display: block
+        clear: both
+      font-size: 1em
+      line-height: 1.7
+      dt
+        color: $grayLight
+        clear: both
+        text-transform: uppercase
+      dd
+        color: $gray
+        min-width: 200px
+      dt, dd
+        float: left
+        display: block
+        margin: 0 0.75em 0 0
+        padding: 0

@@ -6,9 +6,8 @@ var autoIncrement = require('mongoose-auto-increment');
 //  schema
 var ImageSchema = new Schema({
   file: String,
+  description: String,
   project: { type: Number, ref: 'Project', childPath: 'images' },
-  solution: { type: Number, ref: 'Solution', childPath: 'image' },
-  person: { type: Number, ref: 'Person', childPath: 'image' },
   sortOrder: { type: Number, default: 1000 }
 });
 
@@ -16,7 +15,7 @@ var ImageSchema = new Schema({
 ImageSchema.plugin(autoIncrement.plugin, 'Image');
 
 //  relations
-ImageSchema.plugin(relationship, { relationshipPathName: ['project', 'solution', 'person'] });
+ImageSchema.plugin(relationship, { relationshipPathName: ['project'] });
 
 //  model
 var Image = mongoose.model('Image', ImageSchema);

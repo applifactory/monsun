@@ -8,20 +8,18 @@ var ProjectSchema = new Schema({
   name: String,
   link: String,
   language: { type: String, index: true },
-  customer: String,
   description: String,
+  team: String,
+  design: String,
   status: String,
-  role: String,
   category: String,
+  year: String,
   sortOrder: { type: Number, default: 1000 },
-  images: [{ type: Number, ref: 'Image' }],
+  images: [{ type: Number, ref: 'Image' }]
 });
 
 //  numeric ID for linking
 ProjectSchema.plugin(autoIncrement.plugin, 'Project');
-
-//  relations
-//NodeSchema.plugin(relationship, { relationshipPathName: ['sector'] });
 
 //  model
 var Project = mongoose.model('Project', ProjectSchema);

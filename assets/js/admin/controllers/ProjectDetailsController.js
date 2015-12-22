@@ -2,9 +2,9 @@ app.controller('ProjectDetailsController', function($scope, ProjectService, Imag
 
   var dialog;
 
-  $scope.init = function(language, id, projectsPath) {
+  $scope.init = function(language, id, category) {
     $scope.id = id;
-    $scope.projectsPath = projectsPath;
+    $scope.category = category;
     var thumbs = document.querySelector('.thumbs');
     if ( thumbs && thumbs.dataset.images )
       $scope.images = JSON.parse(thumbs.dataset.images);
@@ -14,6 +14,12 @@ app.controller('ProjectDetailsController', function($scope, ProjectService, Imag
     var update = {_id: $scope.id};
     update[attr] = value;
     ProjectService.update(update);
+  }
+
+  $scope.updateImage = function(id, attr, value) {
+    var update = {_id: id};
+    update[attr] = value;
+    ImageService.update(update);
   }
 
   $scope.upload = function($files) {
@@ -68,7 +74,7 @@ app.controller('ProjectDetailsController', function($scope, ProjectService, Imag
     } else {
       dialog.close();
       ProjectService.delete($scope.id).then(function(){
-        $window.location = $scope.projectsPath;
+        $window.location = $scope.category;
       });
     }
   }

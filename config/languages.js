@@ -40,42 +40,16 @@ module.exports = {
     },
     text: {
       projects: 'Projects',
-      solutions: 'Solutions',
-      architecturalSolutions: 'Architectural solutions',
       contact: 'Contact',
       contactUs: 'Contact us',
-      latestPosts: 'Latest blog posts',
-      aboutUs: 'About us',
       more: 'more',
-      moreAboutUs: 'more about us',
       backToAllProjects: 'back to all projects',
       project: 'Project',
-      client: 'Client',
+      design: 'Design',
+      team: 'Project team',
       description: 'Description',
-      status: 'Status',
-      role: 'Role',
-      sliderTitle: 'Architectural solutions<br />that <span>deliver</span>',
-      people: 'iARCH people',
-      name: 'Name',
-      message: 'Message',
-      send: 'Send',
-      contactThanks: 'Thank you for your message!'
-    },
-    sectors: [
-      {
-        id: 1,
-        name: 'Office & workplace'
-      }, {
-        id: 2,
-        name: 'Retail & leisure'
-      }, {
-        id: 3,
-        name: 'Residential & workplace'
-      }, {
-        id: 4,
-        name: 'Masterplanning & regeneration'
-      }
-    ]
+      status: 'Status'
+    }
   },
   pl: {
     prefix: '/pl',
@@ -116,26 +90,15 @@ module.exports = {
     },
     text: {
       projects: 'Projekty',
-      solutions: 'Rozwiązania',
-      architecturalSolutions: 'Rozwiązania',
       contact: 'Kontakt',
       contactUs: 'Skontaktuj się z nami',
-      latestPosts: 'Ostatnie posty na blogu',
-      aboutUs: 'O nas',
       more: 'więcej',
-      moreAboutUs: 'więcej o nas',
       backToAllProjects: 'powrót do wszystkich projektów',
       project: 'Projekt',
-      client: 'Klient',
+      design: 'Design',
+      team: 'Zespół projektowy',
       description: 'Opis',
-      status: 'Status',
-      role: 'Rola',
-      sliderTitle: 'Architectural solutions<br />that <span>deliver</span>',
-      people: 'Ludzie iARCH',
-      name: 'Imię i nazwisko',
-      message: 'Wiadomość',
-      send: 'Wyślij',
-      contactThanks: 'Dziękujemy za Twoją wiadomość!'
+      status: 'Status'
     }
   }
 };

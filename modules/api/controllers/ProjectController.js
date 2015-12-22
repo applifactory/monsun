@@ -31,23 +31,20 @@ module.exports.update = function(req, res) {
       update.link = normalize(req.body.name).replace(/[^a-z0-9]+/gi, '-').replace(/^-*|-*$/g, '').toLowerCase();
     }
 
-    if ( req.body.customer )
-      update.customer = req.body.customer;
-
-    if ( req.body.description )
+    if ( req.body.hasOwnProperty('description') )
       update.description = req.body.description;
 
-    if ( req.body.status )
+    if ( req.body.hasOwnProperty('design') )
+      update.design = req.body.design;
+
+    if ( req.body.hasOwnProperty('team') )
+      update.team = req.body.team;
+
+    if ( req.body.hasOwnProperty('status') )
       update.status = req.body.status;
 
-    if ( req.body.role )
-      update.role = req.body.role;
-
-    if ( req.body.sector )
-      update.sector = req.body.sector;
-
-    if ( req.body.solution )
-      update.solution = req.body.solution;
+    if ( req.body.hasOwnProperty('year') )
+      update.year = req.body.year;
 
     Project.findOneAndUpdate({
       _id: req.params.id

@@ -4,71 +4,58 @@ block menu
   - activeMenu = prefix == '/pl' ? 'projekty' : 'projects'
 
 block content
-  .projects
+  .project-details.container(ng-controller=isAdmin ? "ProjectDetailsController" : null, ng-init=isAdmin ? "init('#{prefix ? prefix : '/en'}', #{project._id}, '#{prefix}/#{project.category}')" : null)
 
-    .title
-      h2= text.projects
-
-    .details(ng-controller=isAdmin ? "ProjectDetailsController" : null, ng-init=isAdmin ? "init('#{prefix ? prefix : '/en'}', #{project._id}, '#{prefix}/#{link.projects}')" : null)
-      .container
-        .nav
-          a(href=prefix+'/'+link.projects)= text.backToAllProjects
-        .preview(project-preview)
-          if isAdmin
-            .tools
-              .button(ngf-select="", ngf-change="upload($files)", accept="image/*", ng-class="{disabled: isUploading}") Add image
-              .button.delete(ng-click="deleteProject(true)") Delete project
-            .thumbs(data-images="#{JSON.stringify(project.images)}", ng-sortable="sortConfig")
-              .img(ng-repeat="image in images")
-                i.icon-cancel(ng-click="deleteImage(image, $index)")
-                img(ng-src="/fx/thumb-{{image.file}}")
-          else
-            .image
-              if project.images && project.images.length
-                - image = project.images[0]
-                img(src="/fx/#{image.file}")
-            .thumbs
-              each image in project.images
-                .img
-                  img(src="/fx/thumb-#{image.file}")
-        .info
-          dl
-            if isAdmin
-              dt= text.project
-              dd(data-text="name", on-update="update(attr, value)") !{project.name}
-              dt= text.client
-              dd(data-text="customer", on-update="update(attr, value)") !{project.customer}
-              dt= text.description
-              dd(data-text="description", on-update="update(attr, value)", editor) !{project.description}
-              dt= text.status
-              dd(data-text="status", on-update="update(attr, value)", editor) !{project.status}
-              dt= text.role
-              dd(data-text="role", on-update="update(attr, value)", editor) !{project.role}
-              dt Sector
-              dd
-                .dropdown(data-name="sector", selection=project.sector)
-                  span Sector
-                  ul.options
-                    each sector in sectors
-                      li(data-id=sector.id)= sector.name
-              dt Solution
-              dd
-                .dropdown(data-name="solution", selection=project.solution)
-                  span monsunstudio.com Solutions
-                  ul.options
-                    each solution in solutions
-                      li(data-id=solution._id) #{solution.name}
-            else
-              dt= text.project
-              dd !{project.name}
-              dt= text.client
-              dd !{project.customer}
-              dt= text.description
-              dd !{project.description}
-              dt= text.status
-              dd !{project.status}
-              dt= text.role
-              dd !{project.role}
-      .container
-        footer
-          a.button(href="#{prefix}/#{link.contact}")= text.contactUs
+    .details
+      .title 
+        span(data-text="name", on-update="update(attr, value)") !{project.name}
+        .year(data-text="year", on-update="update(attr, value)") !{project.year}
+      .description(data-text="description", on-update="update(attr, value)", editor) !{project.description}
+  
+    if isAdmin
+      .tools
+        .button(ngf-select="", ngf-change="upload($files)", accept="image/*", ng-class="{disabled: isUploading}") Add image
+        .button.delete(ng-click="deleteProject(true)") Delete project
+      .thumbs(data-images="#{JSON.stringify(project.images)}", ng-sortable="sortConfig")
+        .img(ng-repeat="image in images")
+          i.icon-cancel(ng-click="deleteImage(image, $index)")
+          img(ng-src="/fx/{{image.file}}")
+          .description(data-text="description", on-update="updateImage(image._id, attr, value)", ng-model="image.description") 
+    else
+      each image in project.images
+        .img
+          img(src="/fx/#{image.file}")
+          .description !{image.description}
+    
+    .info
+      dl
+        if isAdmin
+          dt= text.project
+          dd !{project.name}
+          dt= text.design
+          dd(data-text="design", on-update="update(attr, value)") !{project.design}
+          dt= text.team
+          dd(data-text="team", on-update="update(attr, value)") !{project.team}
+          dt= text.status
+          dd(data-text="status", on-update="update(attr, value)") !{project.status}
+        else
+          dt
+            = text.project
+            | :
+          dd !{project.name}
+          - if (project.design)
+            dt
+              = text.design
+              | :
+            dd !{project.design}
+          - if (project.team)
+            dt
+              = text.team
+              | :
+            dd !{project.team}
+          - if (project.status)
+            dt
+              = text.status
+              | :
+            dd !{project.status}
+          

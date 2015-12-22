@@ -24,18 +24,11 @@ function deleteImage(id, callback) {
 }
 
 function getSizes(model) {
-  if ( model == 'project' )
-    return [
-      { mode: 'scale', width: 1800, height: 800 },
-      { mode: 'crop', width: 400, height: 200, prefix: 's' },
-      { mode: 'crop', width: 150, height: 150, prefix: 'thumb' }
-    ];
-
-  if ( model == 'solution' || model == 'person' )
-    return [
-      { mode: 'crop', width: 350, height: 350 }
-    ]
-
+  return [
+    { mode: 'scale', width: 1800, height: 800 },
+    { mode: 'crop', width: 280, height: 320, prefix: 's' },
+    { mode: 'crop', width: 150, height: 150, prefix: 'thumb' }
+  ];
   return null;
 }
 
@@ -74,4 +67,13 @@ module.exports.sort = function(req, res) {
   } else {
     res.status(404);
   }
+};
+
+module.exports.update = function(req, res) {
+  if ( req.params.id && req.body.hasOwnProperty('description') ) {
+    Image.findByIdAndUpdate(req.params.id, { $set: { description: req.body.description }}, function (err, element) {
+      res.end();
+    });
+  } else
+    res.status(404);
 };
