@@ -32,10 +32,16 @@ block content
         if isAdmin
           dt= text.project
           dd !{project.name}
+          dt= text.customer
+          dd(data-text="customer", on-update="update(attr, value)") !{project.customer}
           dt= text.design
           dd(data-text="design", on-update="update(attr, value)") !{project.design}
+          dt= text.cooperation
+          dd(data-text="cooperation", on-update="update(attr, value)") !{project.cooperation}
           dt= text.team
           dd(data-text="team", on-update="update(attr, value)") !{project.team}
+          dt= text.stage
+          dd(data-text="stage", on-update="update(attr, value)") !{project.stage}
           dt= text.status
           dd(data-text="status", on-update="update(attr, value)") !{project.status}
         else
@@ -43,16 +49,31 @@ block content
             = text.project
             | :
           dd !{project.name}
+          - if (project.customer)
+            dt
+              = text.customer
+              | :
+            dd !{project.customer}
           - if (project.design)
             dt
               = text.design
               | :
             dd !{project.design}
+          - if (project.cooperation)
+            dt
+              = text.cooperation
+              | :
+            dd !{project.cooperation}
           - if (project.team)
             dt
               = text.team
               | :
             dd !{project.team}
+          - if (project.stage)
+            dt
+              = text.stage
+              | :
+            dd !{project.stage}
           - if (project.status)
             dt
               = text.status

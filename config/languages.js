@@ -48,7 +48,10 @@ module.exports = {
       design: 'Design',
       team: 'Project team',
       description: 'Description',
-      status: 'Status'
+      status: 'Status',
+      customer: 'Customer',
+      cooperation: 'Cooperation',
+      stage: 'Stage'
     }
   },
   pl: {
@@ -98,7 +101,10 @@ module.exports = {
       design: 'Design',
       team: 'Zespół projektowy',
       description: 'Opis',
-      status: 'Status'
+      status: 'Status',
+      customer: 'Klient',
+      cooperation: 'Współpraca',
+      stage: 'Stadium'
     }
   }
 };

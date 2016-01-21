@@ -46,6 +46,15 @@ module.exports.update = function(req, res) {
     if ( req.body.hasOwnProperty('year') )
       update.year = req.body.year;
 
+    if ( req.body.hasOwnProperty('customer') )
+      update.customer = req.body.customer;
+
+    if ( req.body.hasOwnProperty('cooperation') )
+      update.cooperation = req.body.cooperation;
+
+    if ( req.body.hasOwnProperty('stage') )
+      update.stage = req.body.stage;
+
     Project.findOneAndUpdate({
       _id: req.params.id
     }, {
