@@ -37,6 +37,7 @@ module.exports.texts = function(req, res, next) {
     texts.forEach(function(_text){
       if ( _text.id == id )
         text = _text.text;
+    })
     return text;
   }
   Text.find({}, function(err, _texts){
