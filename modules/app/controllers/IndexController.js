@@ -32,14 +32,19 @@ module.exports.texts = function(req, res, next) {
   var texts = [];
   res.locals.getText = function(id) {
     var text = '';
+    if ( id.indexOf('/pl') < 0 && id.indexOf('/en') < 0 )
+      id = '/pl' + id;
     texts.forEach(function(_text){
       if ( _text.id == id )
         text = _text.text;
-    })
     return text;
   }
   Text.find({}, function(err, _texts){
     texts = _texts;
+    texts.forEach(function(_text){
+      if ( _text.id.indexOf('/pl') < 0 && _text.id.indexOf('/en') < 0 )
+        _text.id = '/en' + _text.id;
+    })
     next();
   })
 }

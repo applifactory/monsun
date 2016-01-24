@@ -19,19 +19,6 @@ module.exports = function(app) {
   adminRouter.route('/logout').get(admin.logout);
   app.use('/admin', adminRouter);
 
-
-  var plRouter = express.Router();
-  plRouter.route('/').get(index.index);
-  plRouter.route('/studio').get(index.studio);
-  plRouter.route('/oferta').get(index.offer);
-  plRouter.route('/kontakt')
-    .get(index.contact)
-    .post(index.contact);
-  plRouter.route('/:category').get(index.projects);
-  plRouter.route('/:category/:link/:id').get(index.projectDetails);
-  app.use('', plRouter);
-
-
   var enRouter = express.Router();
   enRouter.route('/').get(index.index);
   enRouter.route('/studio').get(index.studio);
@@ -42,5 +29,16 @@ module.exports = function(app) {
   enRouter.route('/:category').get(index.projects);
   enRouter.route('/:category/:link/:id').get(index.projectDetails);
   app.use('/en', enRouter);
+  
+  var plRouter = express.Router();
+  plRouter.route('/').get(index.index);
+  plRouter.route('/studio').get(index.studio);
+  plRouter.route('/oferta').get(index.offer);
+  plRouter.route('/kontakt')
+    .get(index.contact)
+    .post(index.contact);
+  plRouter.route('/:category').get(index.projects);
+  plRouter.route('/:category/:link/:id').get(index.projectDetails);
+  app.use('', plRouter);
 
 };

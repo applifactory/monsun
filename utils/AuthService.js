@@ -13,7 +13,6 @@ module.exports.authorized = function(req, res, next) {
   if ( global.authExcludePaths && global.authExcludePaths.hasOwnProperty(req.path) ) {
     var methods = global.authExcludePaths[req.path];
     if ( methods && methods.indexOf(req.method) >= 0 ) {
-      console.log('### skipping auth');
       return next();
     }
   }

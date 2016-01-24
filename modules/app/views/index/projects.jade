@@ -4,7 +4,7 @@ block menu
   - activeMenu = category
 
 block content
-  .projects.container(ng-controller=isAdmin ? "ProjectsController" : null, ng-init=isAdmin ? "init('#{prefix ? prefix : '/en'}')" : null)
+  .projects.container(ng-controller=isAdmin ? "ProjectsController" : null, ng-init=isAdmin ? "init('#{prefix ? prefix : '/pl'}')" : null)
 
     .section-title
       h2(data-text=isAdmin ? "#{prefix}/projects/claim" : null)

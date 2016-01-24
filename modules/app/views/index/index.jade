@@ -2,7 +2,7 @@ extends ../layouts/app.jade
 
 block content
   
-  - sliderIndex = prefix == '/pl' ? 1 : 0
+  - sliderIndex = prefix == '/en' ? 0 : 1
 
   .home.container(ng-controller=isAdmin ? 'SliderController' : null)
     if isAdmin

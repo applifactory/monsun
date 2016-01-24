@@ -4,8 +4,7 @@ app.controller('SliderController', function($scope, ImageService, ngDialog){
   var dialog = null;
   var sliderIndex = thumbs.dataset.index;
   $scope.slides = thumbs ? JSON.parse(thumbs.dataset.slides) : [];
-
-  console.log('sliderIndex', sliderIndex);
+  
   $scope.editSlide = function(slide) {
 
     $scope.currentSlide = slide;
