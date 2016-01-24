@@ -20,7 +20,7 @@ module.exports.helpers = function(req, res, next) {
 }
 
 module.exports.languages = function(req, res, next) {
-  var lang = ( req.path.indexOf('/pl') == 0 ) ? 'pl' : 'en';
+  var lang = ( req.path.indexOf('/en') == 0 ) ? 'en' : 'pl';
   for ( attr in languages[lang] ) {
     res.locals[attr] = languages[lang][attr];
   }

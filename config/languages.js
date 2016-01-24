@@ -2,7 +2,7 @@
 
 module.exports = {
   en: {
-    prefix: '',
+    prefix: '/en',
     menu: [
       {
         name: 'Architecture',
@@ -55,7 +55,7 @@ module.exports = {
     }
   },
   pl: {
-    prefix: '/pl',
+    prefix: '',
     menu: [
       {
         name: 'Architektura',
