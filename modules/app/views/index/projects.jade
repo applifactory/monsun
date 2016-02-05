@@ -7,8 +7,8 @@ block content
   .projects.container(ng-controller=isAdmin ? "ProjectsController" : null, ng-init=isAdmin ? "init('#{prefix ? prefix : '/pl'}')" : null)
 
     .section-title
-      h2(data-text=isAdmin ? "#{prefix}/projects/claim" : null)
-        | !{getText(prefix+"/projects/claim")}
+      h2(data-text=isAdmin ? "#{prefix}/projects/claim/#{category}" : null)
+        | !{getText(prefix+"/projects/claim/"+category)}
     .list
       .container
         
