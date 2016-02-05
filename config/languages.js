@@ -51,7 +51,11 @@ module.exports = {
       status: 'Status',
       customer: 'Customer',
       cooperation: 'Cooperation',
-      stage: 'Stage'
+      stage: 'Stage',
+      investor: 'Investor',
+      realization: 'Realization',
+      area: 'Area',
+      photography: 'Photography'
     }
   },
   pl: {
@@ -104,7 +108,11 @@ module.exports = {
       status: 'Status',
       customer: 'Klient',
       cooperation: 'Współpraca',
-      stage: 'Stadium'
+      stage: 'Stadium',
+      investor: 'Inwestor',
+      realization: 'Realizacja',
+      area: 'Powierzchnia',
+      photography: 'Fotografia'
     }
   }
 };

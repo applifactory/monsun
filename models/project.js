@@ -17,6 +17,10 @@ var ProjectSchema = new Schema({
   status: String,
   category: String,
   year: String,
+  investor: String,
+  realization: String,
+  area: String,
+  photography: String,
   sortOrder: { type: Number, default: 1000 },
   images: [{ type: Number, ref: 'Image' }]
 });

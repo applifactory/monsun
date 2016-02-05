@@ -46,6 +46,18 @@ module.exports.update = function(req, res) {
     if ( req.body.hasOwnProperty('year') )
       update.year = req.body.year;
 
+    if ( req.body.hasOwnProperty('investor') )
+      update.investor = req.body.investor;
+
+    if ( req.body.hasOwnProperty('realization') )
+      update.realization = req.body.realization;
+
+    if ( req.body.hasOwnProperty('area') )
+      update.area = req.body.area;
+
+    if ( req.body.hasOwnProperty('photography') )
+      update.photography = req.body.photography;
+
     if ( req.body.hasOwnProperty('customer') )
       update.customer = req.body.customer;
 

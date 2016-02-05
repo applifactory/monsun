@@ -44,6 +44,16 @@ block content
           dd(data-text="stage", on-update="update(attr, value)") !{project.stage}
           dt= text.status
           dd(data-text="status", on-update="update(attr, value)") !{project.status}
+          dt= text.investor
+          dd(data-text="investor", on-update="update(attr, value)") !{project.investor}
+          dt= text.realization
+          dd(data-text="realization", on-update="update(attr, value)") !{project.realization}
+          dt= text.area
+          dd(data-text="area", on-update="update(attr, value)") !{project.area}
+          dt= text.photography
+          dd(data-text="photography", on-update="update(attr, value)") !{project.photography}
+          
+          
         else
           dt
             = text.project
@@ -79,4 +89,23 @@ block content
               = text.status
               | :
             dd !{project.status}
-          
+          - if (project.investor)
+            dt
+              = text.investor
+              | :
+            dd !{project.investor}
+          - if (project.realization)
+            dt
+              = text.realization
+              | :
+            dd !{project.realization}
+          - if (project.area)
+            dt
+              = text.area
+              | :
+            dd !{project.area}
+          - if (project.photography)
+            dt
+              = text.photography
+              | :
+            dd !{project.photography}
