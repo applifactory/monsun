@@ -26,7 +26,7 @@ function deleteImage(id, callback) {
 function getSizes(model) {
   if ( model == 'slider' )
     return [
-      { mode: 'crop', width: 1200, height: 675 },
+      { mode: 'crop', width: 1200, height: 510 },
       { mode: 'crop', width: 240, height: 102, prefix: 'thumb' }
     ];
   else
