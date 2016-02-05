@@ -23,4 +23,7 @@ block content
                 - image = project.images && project.images.length ? project.images[0] : null
                 if image
                   img(src="/fx/s-#{image.file}")
-                .description #{project.name}
+                .description
+                  | #{project.name}
+                  br
+                  | #{project.year}
