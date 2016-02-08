@@ -7,7 +7,13 @@ var Project = require('../../../models/project'),
 function saveModel(fileName, model, id, callback) {
   var image = new Image();
   image.file = fileName;
-  image[model] = id;
+  if ( model == 'project-cover' ) {
+    deleteImages('project', id, {cover: true}, function(err, ok){});
+    image.project = id;
+    image.cover = true;
+  } else {
+    image[model] = id;
+  }
   image.save(function(err){
     callback(err, image);
   });
@@ -23,11 +29,30 @@ function deleteImage(id, callback) {
   });
 }
 
+function deleteImages(model, id, query, callback) {
+  query = query || {};
+  query[model] = id;
+  Image.find(query).exec(function(err, images){
+    if ( err || !images )
+      return callback('error');
+    images.forEach(function(image) {
+      ImageService.deleteImage(image.file);
+      image.remove();
+    })
+    callback();
+  });
+}
+
 function getSizes(model) {
   if ( model == 'slider' )
     return [
       { mode: 'crop', width: 1200, height: 510 },
       { mode: 'crop', width: 240, height: 102, prefix: 'thumb' }
+    ];
+  else if ( model == 'project-cover' )
+    return [
+      { mode: 'crop', width: 280, height: 320, prefix: 's' },
+      { mode: 'crop', width: 150, height: 150, prefix: 'thumb' }
     ];
   else
     return [

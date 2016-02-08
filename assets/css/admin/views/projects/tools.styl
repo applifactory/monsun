@@ -9,6 +9,21 @@
   .list
     .tools
       margin-top: 1.5em
+  .list-items
+    li
+      .tools
+        display: none
+        position: absolute
+        left: 0
+        right: 0
+        top: 0
+        z-index: 11
+        .button
+          padding: 0.2em 0.6em 0.3em
+          font-size: 1.25em
+      &:hover
+        .tools
+          display: block
 
 .project-details
   .tools

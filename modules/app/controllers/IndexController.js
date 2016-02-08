@@ -66,7 +66,7 @@ module.exports.index = function(req, res) {
 module.exports.projects = function(req, res) {
   Project
     .find({ language: res.locals.language, category: req.params.category })
-    .populate({path: 'images', options: { sort: 'sortOrder _id' }})
+    .populate({path: 'images', match: { cover: true }, options: { sort: 'sortOrder _id' }})
     .sort('sortOrder _id')
     .exec(function(err, projects){
       res.render(_views+'projects', {projects: projects, category: req.params.category });
@@ -74,7 +74,7 @@ module.exports.projects = function(req, res) {
 };
 
 module.exports.projectDetails = function(req, res) {
-  Project.findOne({_id: req.params.id}).populate({path: 'images', options: { sort: 'sortOrder _id' }}).exec(function(err, project){
+  Project.findOne({_id: req.params.id}).populate({path: 'images', match: { cover: { $ne: true } }, options: { sort: 'sortOrder _id' }}).exec(function(err, project){
     if ( err || !project )
       res.status(404).redirect( res.locals.prefix + '/' + res.locals.link.projects );
     else

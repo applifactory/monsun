@@ -1,4 +1,4 @@
-app.controller('ProjectsController', function($scope, ngDialog, ProjectService){
+app.controller('ProjectsController', function($scope, ngDialog, ProjectService, ImageService, $window){
 
   $scope.init = function(language) {
     $scope.language = language;
@@ -39,6 +39,18 @@ app.controller('ProjectsController', function($scope, ngDialog, ProjectService){
       }, function(){
 
       })
+    }
+  }
+
+  $scope.uploadCover = function(projectId, $files) {
+    console.log('addCover', projectId);
+    if ( !$scope.isUploading && $files.length > 0 ) {
+      $scope.isUploading = true;
+      ImageService.upload($files[0], 'project-cover/' + projectId).then(function(image){
+        $window.location.reload();
+      }, function(err){
+        $scope.isUploading = false;
+      });
     }
   }
 

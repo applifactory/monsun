@@ -27,3 +27,6 @@ block content
                   | #{project.name}
                   br
                   | #{project.year}
+              if isAdmin
+                .tools
+                  .button(ngf-select="", ngf-change="uploadCover(#{project._id}, $files)", accept="image/*", ng-class="{disabled: isUploading}") Set cover
