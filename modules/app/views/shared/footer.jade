@@ -1,11 +1,12 @@
-footer.container(role="navigation")
-  ul.socials
-    li
-      a.twitter(href="https://twitter.com/MonsunStudio", target="_blank") MonsunStudio on Twitter
-    li
-      a.pinterest(href="https://www.pinterest.com/monsunstudio/", target="_blank") MonsunStudio on Pinterest
-  ul(role="navigation")
-    each menuItem in footer
-      li(class=activeMenu==menuItem.link ? "active" : "")
-        a(href=prefix + '/' + menuItem.link)
-          = menuItem.name
+footer(role="navigation")
+  .container
+    ul.socials
+      li
+        a.twitter(href="https://twitter.com/MonsunStudio", target="_blank") MonsunStudio on Twitter
+      li
+        a.pinterest(href="https://www.pinterest.com/monsunstudio/", target="_blank") MonsunStudio on Pinterest
+    ul(role="navigation")
+      each menuItem in footer
+        li(class=activeMenu==menuItem.link ? "active" : "")
+          a(href=prefix + '/' + menuItem.link)
+            = menuItem.name
