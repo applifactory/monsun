@@ -1,11 +1,14 @@
 footer
-  position: fixed
-  bottom: 0
-  right: 0
-  left: 0
-  z-index: 10000
-  background: rgba(255, 255, 255, 0.8)
-  margin: 0 !important
+  +size($smallScreen)
+    position: fixed
+    bottom: 0
+    right: 0
+    left: 0
+    z-index: 10000
+    background: rgba(255, 255, 255, 0.8)
+    margin: 0 !important
+    .container
+      margin-bottom: 0
   &::after
     content: ''
     display: block
