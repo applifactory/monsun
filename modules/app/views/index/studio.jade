@@ -14,9 +14,9 @@ block content
       li
         img(src="/lukasz-sztuka.jpg")
         .name Łukasz Sztuka
-      li.person
-        img(src="/marcin-witalinski.jpg")
-        .name Marcin Witaliński
+      //- li.person
+      //-   img(src="/marcin-witalinski.jpg")
+      //-   .name Marcin Witaliński
         
     .description(data-text=isAdmin ? "#{prefix}/studio/description" : null, editor=isAdmin ? "true" : null)
       !{getText(prefix+"/studio/description")}
