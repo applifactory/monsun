@@ -10,18 +10,16 @@
       .name
         color: $grayLight
         font-size: (11/$em)
-        text-align: center
     +size($smallScreen)
       &::after
         content: ''
         display: block
         clear: both
       li
-        //float: left
+        float: left
         width: 48%
-        // &:first-child
-        //   margin-right: 4%
-        margin: 0 auto
+        &:first-child
+          margin-right: 4%
   .description
     max-width: 450px
     margin: 5em auto

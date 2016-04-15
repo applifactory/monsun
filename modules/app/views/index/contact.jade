@@ -7,8 +7,8 @@ block content
   .contact.container
     
     ul
-      //- li(data-text=isAdmin ? "#{prefix}/contact/lukasz" : null, editor=isAdmin ? "true" : null)
-      //-   !{getText(prefix+"/contact/lukasz")}
+      li(data-text=isAdmin ? "#{prefix}/contact/lukasz" : null, editor=isAdmin ? "true" : null)
+        !{getText(prefix+"/contact/lukasz")}
       li(data-text=isAdmin ? "#{prefix}/contact/marcin" : null, editor=isAdmin ? "true" : null)
         !{getText(prefix+"/contact/marcin")}
         
@@ -17,5 +17,5 @@ block content
       
     a.email(href="mailto:biuro@monsunstudio.com") biuro@monsunstudio.com
 
-    //- .map
-    //-   iframe#map(width='100%', height='400px', frameBorder='0', src='https://a.tiles.mapbox.com/v4/applifactory.og8pom5i/attribution,zoompan,geocoder,share.html?access_token=pk.eyJ1IjoiYXBwbGlmYWN0b3J5IiwiYSI6Ik5hSGdYekUifQ.wVOd-GQzikWx2o0WkAPChg')
+    .map
+      iframe#map(width='100%', height='400px', frameBorder='0', src='https://a.tiles.mapbox.com/v4/applifactory.og8pom5i/attribution,zoompan,geocoder,share.html?access_token=pk.eyJ1IjoiYXBwbGlmYWN0b3J5IiwiYSI6Ik5hSGdYekUifQ.wVOd-GQzikWx2o0WkAPChg')
