@@ -6,12 +6,10 @@
     max-width: 450px
     li
       text-align: center
-      // +size($smallScreen)
-      //   text-align: left
-      //   &:last-child
-      //     text-align: right
-      margin: 0 auto !important
-      float: none !important
+      +size($smallScreen)
+        text-align: left
+        &:last-child
+          text-align: right
       a
         color: $gray
         &:hover
