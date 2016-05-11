@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cosmedica</title>
+    <script src="./pannellum.js"></script>
+    <link rel="stylesheet" href="./pannellum.css">
+    <style>
+      #panorama {
+        width: 800px;
+        height: 600px;
+        margin: 0 auto;
+      }
+    </style>
+
+  </head>
+  <body>
+
+    <div id="panorama"></div>
+    <script>
+      pannellum.viewer('panorama', {
+        "default": {
+          "firstScene": "styl-zycia",
+          "sceneFadeDuration": 500,
+          "autoLoad": true,
+          "hfov": 120
+        },
+        "scenes": {
+          "styl-zycia": {
+            "title": "Styl życia",
+            "pitch": -15,
+            "yaw": -36,
+            "type": "equirectangular",
+            "panorama": "./360-1_p.jpg",
+            "hotSpots": [
+              {
+                "sceneId": "uroda",
+                "pitch": -19,
+                "yaw": -83,
+                "type": "scene",
+                "text": "Uroda",
+                "targetPitch": 0,
+                "targetYaw": 81
+              },
+              {
+                "sceneId": "zdrowie",
+                "pitch": -16,
+                "yaw": 12,
+                "type": "scene",
+                "text": "Zdrowie",
+                "targetPitch": 0,
+                "targetYaw": 160
+              }
+            ]
+          },
+          "uroda": {
+            "title": "Uroda",
+            "type": "equirectangular",
+            "panorama": "./360-2_p.jpg",
+            "hotSpots": [
+              {
+                "sceneId": "styl-zycia",
+                "pitch": -23,
+                "yaw": 81,
+                "type": "scene",
+                "text": "Styl życia",
+                "targetPitch": 0,
+                "targetYaw": -83
+              },
+              {
+                "sceneId": "dermokonsultacja",
+                "pitch": -17,
+                "yaw": -8,
+                "type": "scene",
+                "text": "Dermokonsultacja",
+                "targetPitch": 0,
+                "targetYaw": 180
+              }
+            ]
+          },
+          "dermokonsultacja": {
+            "title": "Dermokonsultacja",
+            "type": "equirectangular",
+            "panorama": "./360-3_p.jpg",
+            "hotSpots": [
+              {
+                "sceneId": "uroda",
+                "text": "Uroda",
+                "pitch": -15,
+                "yaw": 180,
+                "type": "scene",
+                "targetPitch": 0,
+                "targetYaw": -8
+              },
+              {
+                "sceneId": "zdrowie",
+                "text": "Zdrowie",
+                "pitch": -19,
+                "yaw": 16,
+                "type": "scene",
+                "targetPitch": 0,
+                "targetYaw": 220
+              }
+            ]
+          },
+
+          "zdrowie": {
+            "title": "Zdrowie",
+            "type": "equirectangular",
+            "panorama": "./360-4_p.jpg",
+            "yaw": 190,
+            "hotSpots": [
+              {
+                "sceneId": "styl-zycia",
+                "text": "Styl życia",
+                "pitch": -15,
+                "yaw": 160,
+                "type": "scene",
+                "targetPitch": 0,
+                "targetYaw": 12
+              },
+              {
+                "sceneId": "dermokonsultacja",
+                "text": "Dermokonsultacja",
+                "pitch": -22,
+                "yaw": 220,
+                "type": "scene",
+                "targetPitch": 0,
+                "targetYaw": 16
+              },
+              {
+                "sceneId": "gabinet",
+                "text": "Gabinet",
+                "pitch": -30,
+                "yaw": 295,
+                "type": "scene",
+                "targetPitch": -10,
+                "targetYaw": -48
+              }
+            ]
+          },
+
+          "gabinet": {
+            "title": "Gabinet",
+            "type": "equirectangular",
+            "panorama": "./360-5_p.jpg",
+            "yaw": -90,
+            "hotSpots": [
+              {
+                "sceneId": "zdrowie",
+                "text": "Zdrowie",
+                "pitch": -35,
+                "yaw": -48,
+                "type": "scene",
+                "targetPitch": 0,
+                "targetYaw": 295
+              }
+            ]
+          }
+        }
+      });
+    </script>
+
+
+  </body>
+</html>
