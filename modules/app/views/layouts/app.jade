@@ -21,7 +21,9 @@ html
     block menu
     block head
   body(ng-app=isAdmin ? 'MonsunAdmin' : 'Monsun')
-
+    
+    include ../shared/analytics.jade
+    
     - if ( !hideMenu )
       include ../shared/admin-header.jade
       include ../shared/header.jade
