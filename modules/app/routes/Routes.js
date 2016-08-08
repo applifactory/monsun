@@ -8,6 +8,7 @@ module.exports = function(app) {
 
   app.use(index.authUser);
   app.use(index.languages);
+  app.use(index.seo);
   app.use(index.helpers);
   app.use(index.texts);
 
@@ -29,7 +30,7 @@ module.exports = function(app) {
   enRouter.route('/:category').get(index.projects);
   enRouter.route('/:category/:link/:id').get(index.projectDetails);
   app.use('/en', enRouter);
-  
+
   var plRouter = express.Router();
   plRouter.route('/').get(index.index);
   plRouter.route('/studio').get(index.studio);

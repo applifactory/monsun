@@ -1,5 +1,6 @@
 var _views = 'app/views/index/',
     truncate = require('../../../utils/TruncateHtml'),
+    getSeoMeta = require('../../../utils/SeoHelper'),
     Text = require('../../../models/text'),
     Project = require('../../../models/project'),
     Image = require('../../../models/image'),
@@ -25,6 +26,11 @@ module.exports.languages = function(req, res, next) {
     res.locals[attr] = languages[lang][attr];
   }
   res.locals.language = lang;
+  next();
+}
+
+module.exports.seo = function(req, res, next) {
+  res.locals.seo = getSeoMeta(req.path);
   next();
 }
 

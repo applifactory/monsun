@@ -6,6 +6,8 @@ html
   head
     link(href='http://fonts.googleapis.com/css?family=Work+Sans:400,700&subset=latin,latin-ext', rel='stylesheet', type='text/css')
     link(rel='stylesheet', href='/assets/app.min.css')
+    meta(name="description" content=seo.description)
+    meta(name="keywords" content=seo.keywords)
     if isAdmin
       link(rel='stylesheet', href='/assets/admin.min.css')
     include ../shared/fonts.jade
@@ -15,7 +17,7 @@ html
     else
       script(src="/assets/app.js")
     block title
-      title Monsun Studio
+      title= seo.title
     block menu
     block head
   body(ng-app=isAdmin ? 'MonsunAdmin' : 'Monsun')
