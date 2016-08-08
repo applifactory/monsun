@@ -34,6 +34,14 @@ module.exports.seo = function(req, res, next) {
   next();
 }
 
+module.exports.wildcard = function(req, res, next) {
+  if ( req.hostname.indexOf('.monsunstudio.com') > 0 ) {
+    res.redirect(301, 'http://monsunstudio.com' + req.path);
+  } else {
+    next();
+  }
+}
+
 module.exports.texts = function(req, res, next) {
   var texts = [];
   res.locals.getText = function(id) {

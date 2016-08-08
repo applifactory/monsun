@@ -11,6 +11,7 @@ module.exports = function(app) {
   app.use(index.seo);
   app.use(index.helpers);
   app.use(index.texts);
+  app.use(index.wildcard);
 
 
   var adminRouter = express.Router();
