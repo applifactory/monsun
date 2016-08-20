@@ -4,20 +4,18 @@ module.exports = {
   en: {
     prefix: '/en',
     menu: [
+      // {
+      //   name: 'Architecture',
+      //   link: 'architecture'
+      // },
+      // {
+      //   name: 'Interiors',
+      //   link: 'interiors'
+      // },
       {
-        name: 'Architecture',
-        link: 'architecture'
+        name: 'Projects',
+        link: 'projects'
       },
-      {
-        name: 'Interiors',
-        link: 'interiors'
-      },
-      {
-        name: 'Visualizations',
-        link: 'visualizations'
-      }
-    ],
-    footer: [
       {
         name: 'Offer',
         link: 'offer'
@@ -61,20 +59,18 @@ module.exports = {
   pl: {
     prefix: '',
     menu: [
+      // {
+      //   name: 'Architektura',
+      //   link: 'architektura'
+      // },
+      // {
+      //   name: 'Wnętrza',
+      //   link: 'wnetrza'
+      // },
       {
-        name: 'Architektura',
-        link: 'architektura'
+        name: 'Projekty',
+        link: 'projekty'
       },
-      {
-        name: 'Wnętrza',
-        link: 'wnetrza'
-      },
-      {
-        name: 'Wizualizacje',
-        link: 'wizualizacje'
-      }
-    ],
-    footer: [
       {
         name: 'Oferta',
         link: 'oferta'

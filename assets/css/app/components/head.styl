@@ -1,16 +1,23 @@
 header.head
   display: block
   h1.logo
-    margin: 0.5em auto 0
-    width: 218px
+    margin: 0.25em auto 1em
+    width: 255px
+    max-width: 99%
     a
       display: block
-      background: url(/monsun-logo.png) no-repeat center
+      height: 0
+      padding-bottom: 16%
+      background: url(/monsun-logo-h.png) no-repeat center
       background-size: contain
       overflow: hidden
       text-indent: -1000px
-      height: 74px
-    &.bigger
-      width: 255px
+  +size($smallScreen)
+    h1.logo
+      float: left
+      margin: 0
       a
-        height: 100px
+        height: 55px
+        padding-bottom: 0
+    .menu
+      float: right
