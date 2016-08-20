@@ -3,45 +3,28 @@
     list-style: none
     margin: 4em auto 5em
     padding: 0
-    max-width: 450px
+    max-width: 750px
     li
       text-align: center
+      line-height: 1
+      margin: 3em 0
       +size($smallScreen)
-        text-align: left
-        &:last-child
-          text-align: right
+        margin: 0
       a
         color: $gray
         &:hover
           color: lighten($gray, 30%)
-    +size($smallScreen/2)
+    +size($smallScreen)
       &::after
         content: ''
         display: block
         clear: both
       li
         float: left
-        width: 48%
+        width: 31%
         line-height: 1.4
-        &:first-child
-          margin-right: 4%
-
-  .address
-    margin: 4em auto
-    max-width: 250px
-    text-align: center
-    position: relative
-    &::before
-      content: ''
-      width: 50px
-      height: 1px
-      background: #636363
-      display: block
-      margin: 0 auto 2em
-    a
-      color: $grayLight
-      &:hover
-        color: darken($grayLight, 10%)
+        &:nth-child(n+2)
+          margin-left: 3%
 
   .email
     margin: 4em auto
