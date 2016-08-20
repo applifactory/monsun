@@ -4,14 +4,15 @@ block content
   
   - sliderIndex = prefix == '/en' ? 0 : 1
 
-  .home.container(ng-controller=isAdmin ? 'SliderController' : null)
+  .home(ng-controller=isAdmin ? 'SliderController' : null)
     if isAdmin
-      .thumbs(data-slides="#{JSON.stringify(slides)}", ng-sortable="sortConfig", data-index="#{sliderIndex}")
-        .img(ng-repeat="slide in slides", ng-click="editSlide(slide)")
-          i.icon-cancel(ng-click="deleteSlide(slide, $index, $event)")
-          img(ng-src="/fx/thumb-{{slide.file}}")
-      .tools
-        .button(ngf-select="", ngf-change="upload($files)", accept="image/*", ng-class="{disabled: isUploading}") New slide
+      .container
+        .thumbs(data-slides="#{JSON.stringify(slides)}", ng-sortable="sortConfig", data-index="#{sliderIndex}")
+          .img(ng-repeat="slide in slides", ng-click="editSlide(slide)")
+            i.icon-cancel(ng-click="deleteSlide(slide, $index, $event)")
+            img(ng-src="/fx/thumb-{{slide.file}}")
+        .tools
+          .button(ngf-select="", ngf-change="upload($files)", accept="image/*", ng-class="{disabled: isUploading}") New slide
     else
       .slider
         each slide, index in slides
