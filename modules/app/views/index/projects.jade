@@ -1,10 +1,16 @@
 extends ../layouts/app.jade
 
 block menu
-  - activeMenu = category
-
+  - activeMenu = language == 'pl' ? 'projekty' : 'projects'
+  - projectsPrefix = language == 'pl' ? '/projekty' : '/projects'
 block content
   .projects.container(ng-controller=isAdmin ? "ProjectsController" : null, ng-init=isAdmin ? "init('#{prefix ? prefix : '/pl'}')" : null)
+
+    ul.categories
+      each projectCategory in projectCategories
+        li(class=( '/'+category==projectCategory.link || ( projectCategory.link == '' && !category ) ) ? "active" : "")
+          a(href=prefix + projectsPrefix + projectCategory.link)
+            = projectCategory.name
 
     .section-title
       h2(data-text=isAdmin ? "#{prefix}/projects/claim/#{category}" : null)
@@ -14,12 +20,15 @@ block content
         
         if isAdmin
           .tools
-            .button(ng-click="newProject()") New project
+            if category
+              .button(ng-click="newProject()") New project
+            else
+              .button.disabled New project
         
         ul.list-items
           each project in projects
             li(data-id=isAdmin ? project._id : null, data-category=project.category)
-              a(href="#{prefix}/#{project.category}/#{project.link}/#{project._id}")
+              a(href="#{prefix}#{projectsPrefix}/#{project.category}/#{project.link}/#{project._id}")
                 - image = project.images && project.images.length ? project.images[0] : null
                 if image
                   img(src="/fx/s-#{image.file}")

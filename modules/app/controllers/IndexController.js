@@ -78,8 +78,13 @@ module.exports.index = function(req, res) {
 };
 
 module.exports.projects = function(req, res) {
+  var query = { language: res.locals.language };
+  if ( req.params.category ) {
+    query.category = req.params.category;
+  }
+
   Project
-    .find({ language: res.locals.language, category: req.params.category })
+    .find(query)
     .populate({path: 'images', match: { cover: true }, options: { sort: 'sortOrder _id' }})
     .sort('sortOrder _id')
     .exec(function(err, projects){

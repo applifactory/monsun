@@ -4,14 +4,6 @@ module.exports = {
   en: {
     prefix: '/en',
     menu: [
-      // {
-      //   name: 'Architecture',
-      //   link: 'architecture'
-      // },
-      // {
-      //   name: 'Interiors',
-      //   link: 'interiors'
-      // },
       {
         name: 'Projects',
         link: 'projects'
@@ -27,6 +19,24 @@ module.exports = {
       {
         name: 'Contact',
         link: 'contact'
+      }
+    ],
+    projectCategories: [
+      {
+        name: 'All',
+        link: ''
+      },
+      {
+        name: 'Architecture',
+        link: '/architecture'
+      },
+      {
+        name: 'Interiors',
+        link: '/interiors'
+      },
+      {
+        name: 'Furniture',
+        link: '/furniture'
       }
     ],
     link: {
@@ -59,14 +69,6 @@ module.exports = {
   pl: {
     prefix: '',
     menu: [
-      // {
-      //   name: 'Architektura',
-      //   link: 'architektura'
-      // },
-      // {
-      //   name: 'Wnętrza',
-      //   link: 'wnetrza'
-      // },
       {
         name: 'Projekty',
         link: 'projekty'
@@ -82,6 +84,24 @@ module.exports = {
       {
         name: 'Kontakt',
         link: 'kontakt'
+      }
+    ],
+    projectCategories: [
+      {
+        name: 'Wszystkie',
+        link: ''
+      },
+      {
+        name: 'Architektura',
+        link: '/architektura'
+      },
+      {
+        name: 'Wnętrza',
+        link: '/wnetrza'
+      },
+      {
+        name: 'Meble',
+        link: '/meble'
       }
     ],
     link: {

@@ -1,6 +1,40 @@
 .projects
+  .categories
+    list-style: none
+    text-align: center
+    padding: 0
+    margin: 0 0 3em
+    +size($smallScreen)
+      margin: 0
+    li
+      position: relative
+      font-family: bebas-neue-web, sans-serif
+      +size($smallScreen)
+        display: inline-block
+        &:nth-child(n+2)::before
+          content: ''
+          display: block
+          position: absolute
+          left: 0
+          top: 20px
+          bottom: 20px
+          background: $grayLight
+          width: 1px
+      a
+        +size($smallScreen)
+          padding: 1em
+        display: block
+        font-size: (17/$em)
+        font-weight: bold
+        text-transform: uppercase
+        color: $grayLight
+        &:hover
+          color: darken($grayLight, 20%)
+      &.active
+        a
+          color: $gray
   .list-items
-    list-style: nonw
+    list-style: none
     margin: 0
     padding: 0
     &::after

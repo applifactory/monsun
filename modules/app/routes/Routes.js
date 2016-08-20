@@ -28,8 +28,8 @@ module.exports = function(app) {
   enRouter.route('/contact')
     .get(index.contact)
     .post(index.contact);
-  enRouter.route('/:category').get(index.projects);
-  enRouter.route('/:category/:link/:id').get(index.projectDetails);
+  enRouter.route('/projects/:category?').get(index.projects);
+  enRouter.route('/projects/:category/:link/:id').get(index.projectDetails);
   app.use('/en', enRouter);
 
   var plRouter = express.Router();
@@ -39,8 +39,8 @@ module.exports = function(app) {
   plRouter.route('/kontakt')
     .get(index.contact)
     .post(index.contact);
-  plRouter.route('/:category').get(index.projects);
-  plRouter.route('/:category/:link/:id').get(index.projectDetails);
+  plRouter.route('/projekty/:category?').get(index.projects);
+  plRouter.route('/projekty/:category/:link/:id').get(index.projectDetails);
   app.use('', plRouter);
 
 };
