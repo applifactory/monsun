@@ -25,3 +25,6 @@ block content
         ul.nav
           each slide, index in slides
             li(class=!index ? "active" : null) #{index+1}
+    h2
+      span(data-text=isAdmin ? "#{prefix}/home/claim1" : null) !{getText(prefix+"/home/claim1")}
+      em(data-text=isAdmin ? "#{prefix}/home/claim2" : null) !{getText(prefix+"/home/claim2")}
