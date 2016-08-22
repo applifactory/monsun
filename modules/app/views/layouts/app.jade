@@ -27,10 +27,10 @@ html
       include ../shared/admin-header.jade
       include ../shared/header.jade
 
-    block content
-
-    - if ( !hideMenu )
-      include ../shared/footer.jade
+    main
+      block content
+      - if ( !hideMenu )
+        include ../shared/footer.jade
 
     - if ( settings.env == 'development' )
       script(src="//localhost:35729/livereload.js")

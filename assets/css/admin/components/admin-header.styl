@@ -5,13 +5,13 @@
   overflow: hidden
   height: 28px
   line-height: 1.5
-  .content
+  background: $blue
+  +size($smallScreen)
     position: fixed
     top: 0
     left: 0
     right: 0
-    background: $blue
-    z-index: 100
+    z-index: 10001
   .left, .right
     margin: 0.3em 1em
   .left
@@ -26,3 +26,7 @@
       color: white
       &:hover
         opacity: 0.7
+  & + header
+    top: 28px
+  & ~ main
+    padding-top: 108px

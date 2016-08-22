@@ -1,5 +1,11 @@
 header.head
   display: block
+  +size($smallScreen)
+    position: absolute
+    top: 0
+    left: 0
+    right: 0
+    z-index: 10000
   h1.logo
     margin: 0.25em auto 1em
     width: 255px
