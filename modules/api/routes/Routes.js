@@ -3,10 +3,8 @@
 var auth = require('../../../utils/AuthService.js');
 var textController = require('../controllers/TextController.js');
 var projectController = require('../controllers/ProjectController.js');
-var solutionController = require('../controllers/SolutionController.js');
 var imageController = require('../controllers/ImageController.js');
-var aboutController = require('../controllers/AboutController.js');
-var personController = require('../controllers/PersonController.js');
+var testimonialController = require('../controllers/TestimonialController.js');
 
 module.exports = function(app) {
 
@@ -22,30 +20,6 @@ module.exports = function(app) {
   app.route('/api/text')
     .post(textController.update);
 
-  //  projects
-  app.route('/api/project')
-    .post(projectController.create)
-    .put(projectController.sort);
-  app.route('/api/project/:id')
-    .put(projectController.update)
-    .delete(projectController.delete);
-
-  //  solutions
-  app.route('/api/solution')
-    .post(solutionController.create)
-    .put(solutionController.sort);
-  app.route('/api/solution/:id')
-    .put(solutionController.update)
-    .delete(solutionController.delete);
-
-  //  about
-  app.route('/api/about')
-    .post(aboutController.create)
-    .put(aboutController.sort);
-  app.route('/api/about/:id')
-    .put(aboutController.update)
-    .delete(aboutController.delete);
-
   //  images
   app.route('/api/image/:model/:id')
     .post(imageController.upload);
@@ -55,12 +29,12 @@ module.exports = function(app) {
   app.route('/api/image')
     .put(imageController.sort)
 
-  //  people
-  app.route('/api/person')
-    .post(personController.create)
-    .put(personController.sort);
-  app.route('/api/person/:id')
-    .put(personController.update)
-    .delete(personController.delete);
-
+  //  testimonials
+  app.route('/api/testimonial/:language')
+    .post(testimonialController.create);
+  app.route('/api/testimonial/:id')
+    .put(testimonialController.update)
+    .delete(testimonialController.delete);
+  app.route('/api/testimonial')
+    .put(testimonialController.sort)
 };

@@ -7,8 +7,7 @@ block content
   .studio.container
 
     .section-title
-      h2(data-text=isAdmin ? "#{prefix}/studio/title" : null)
-        !{getText(prefix+"/studio/title")}
+      h2(data-text=isAdmin ? "#{prefix}/studio/title" : null) !{getText(prefix+"/studio/title")}
     
     ul.people
       li
@@ -18,5 +17,26 @@ block content
         img(src="/marcin-witalinski.jpg")
         .name Marcin Witaliński
         
-    .description(data-text=isAdmin ? "#{prefix}/studio/description" : null, editor=isAdmin ? "true" : null)
-      !{getText(prefix+"/studio/description")}
+    .description(data-text=isAdmin ? "#{prefix}/studio/description" : null, editor=isAdmin ? "true" : null) !{getText(prefix+"/studio/description")}
+    
+    if isAdmin
+      .testimonials(ng-controller="TestimonialController" ng-init="init('#{language}')")
+        .tools
+          .button(ng-click="newTestimonial()") New testimonial
+        ul
+          each testimonial in testimonials
+            li.active
+              em(data-text="emphesis" on-update="update('#{testimonial._id}', attr, value)") !{testimonial.emphesis}
+              span(data-text="author" on-update="update('#{testimonial._id}', attr, value)") !{testimonial.author}
+              i.icon-cancel(ng-click="delete('#{testimonial._id}')")
+          
+    else
+      if testimonials && testimonials.length
+        testimonials(interval=isAdmin ? '0' : '5000')
+          ul
+            each testimonial in testimonials
+              li
+                em !{testimonial.emphesis}
+                span !{testimonial.author}
+          .prev
+          .next

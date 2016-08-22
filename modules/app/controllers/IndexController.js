@@ -4,6 +4,7 @@ var _views = 'app/views/index/',
     Text = require('../../../models/text'),
     Project = require('../../../models/project'),
     Image = require('../../../models/image'),
+    Testimonial = require('../../../models/testimonial'),
     _ = require('underscore'),
     languages = require('../../../config/languages'),
     config = require('../../../config/config.js'),
@@ -102,7 +103,9 @@ module.exports.projectDetails = function(req, res) {
 };
 
 module.exports.studio = function(req, res) {
-  res.render(_views+'studio');
+  Testimonial.find({ language: res.locals.language}, function(err, testimonials){
+    res.render(_views+'studio', {testimonials: testimonials || []});
+  })
 };
 
 module.exports.offer = function(req, res) {
