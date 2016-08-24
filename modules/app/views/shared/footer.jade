@@ -7,5 +7,9 @@ footer(role="navigation")
         a.pinterest(href="https://www.pinterest.com/monsunstudio/", target="_blank") MonsunStudio on Pinterest
       li
         a.facebook(href="https://www.facebook.com/monsunstudio", target="_blank") MonsunStudio on Facebook
-    .contact(data-text=isAdmin ? "#{prefix}/footer/contact" : null)
-      | !{getText(prefix+"/footer/contact")}
+    .contact
+      span(data-text=isAdmin ? "#{prefix}/footer/contact" : null) !{getText(prefix+"/footer/contact")}
+      span
+        .split &nbsp;|&nbsp;
+        a(href="mailto:biuro@monsunstudio.com") biuro@monsunstudio.com
+        | &nbsp;|&nbsp;+48 516 140 054

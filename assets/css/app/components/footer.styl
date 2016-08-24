@@ -62,8 +62,25 @@ footer
     margin: 10px
     min-width: 100px
     color: $grayLight
+    a
+      color: $grayLight
+      &:hover
+        color: darken($grayLight, 25%)
+      &:active
+        color: darken($grayLight, 35%)
     p
       margin: 0
+    span
+      display: block
+    .split
+      display: none
     +size($smallScreen)
       float: right
       text-align: right
+      span
+        display: inline
+
+      .split
+        display: inline
+      [contenteditable]
+        display: inline-block
