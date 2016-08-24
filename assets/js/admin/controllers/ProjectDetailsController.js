@@ -3,7 +3,9 @@ app.controller('ProjectDetailsController', function($scope, ProjectService, Imag
   var dialog;
 
   $scope.init = function(language, id, category) {
+    console.log(language, id, category);
     $scope.id = id;
+    $scope.language = language;
     $scope.category = category;
     var thumbs = document.querySelector('.thumbs');
     if ( thumbs && thumbs.dataset.images )
@@ -75,7 +77,7 @@ app.controller('ProjectDetailsController', function($scope, ProjectService, Imag
     } else {
       dialog.close();
       ProjectService.delete($scope.id).then(function(){
-        $window.location = $scope.category;
+        $window.location = ( $scope.language == 'pl' ? '/projekty/' : '/en/projects/' ) + $scope.category;
       });
     }
   }

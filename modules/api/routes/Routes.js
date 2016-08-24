@@ -20,6 +20,14 @@ module.exports = function(app) {
   app.route('/api/text')
     .post(textController.update);
 
+  //  projects
+  app.route('/api/project')
+    .post(projectController.create)
+    .put(projectController.sort);
+  app.route('/api/project/:id')
+    .put(projectController.update)
+    .delete(projectController.delete);
+
   //  images
   app.route('/api/image/:model/:id')
     .post(imageController.upload);

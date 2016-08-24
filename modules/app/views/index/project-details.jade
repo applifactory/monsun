@@ -4,7 +4,7 @@ block menu
   - activeMenu = prefix == '/pl' ? 'projekty' : 'projects'
 
 block content
-  .project-details.container(ng-controller=isAdmin ? "ProjectDetailsController" : null, ng-init=isAdmin ? "init('#{prefix ? prefix : '/en'}', #{project._id}, '#{prefix}/#{project.category}')" : null)
+  .project-details.container(ng-controller=isAdmin ? "ProjectDetailsController" : null, ng-init=isAdmin ? "init('#{language}', #{project._id}, '#{project.category}')" : null)
 
     .details
       .title 
