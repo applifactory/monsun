@@ -28,5 +28,6 @@
         opacity: 0.7
   & + header
     top: 28px
-  & ~ main
-    padding-top: 108px
+  +size($smallScreen)
+    & ~ main
+      padding-top: 108px
