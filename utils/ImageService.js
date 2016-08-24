@@ -8,12 +8,12 @@ var defaultSize = { mode: 'scale', width: 1100, height: 1100 };
 
 function processImage(size, newPath, fileName, fileExt, callback) {
   if ( size.mode == 'crop') {
-    gm(newPath).gravity('Center').resize(size.width || defaultSize.width, size.height || defaultSize.height, "^").crop(size.width || defaultSize.width, size.height || defaultSize.height).write('public/fx/' + ( size.prefix ? size.prefix + '-' : '' ) + fileName + ( fileExt ? '.' + fileExt : '' ), function(err){
+    gm(newPath).quality(size.quality || 75).gravity('Center').resize(size.width || defaultSize.width, size.height || defaultSize.height, "^").crop(size.width || defaultSize.width, size.height || defaultSize.height).write('public/fx/' + ( size.prefix ? size.prefix + '-' : '' ) + fileName + ( fileExt ? '.' + fileExt : '' ), function(err){
       if ( err )  callback('processImage error');
       else        callback();
     });
   } else {
-    gm(newPath).resize(size.width || defaultSize.width, size.height || defaultSize.height, '>').write('public/fx/' + ( size.prefix ? size.prefix + '-' : '' ) + fileName + ( fileExt ? '.' + fileExt : '' ), function(err){
+    gm(newPath).quality(size.quality || 75).resize(size.width || defaultSize.width, size.height || defaultSize.height, '>').write('public/fx/' + ( size.prefix ? size.prefix + '-' : '' ) + fileName + ( fileExt ? '.' + fileExt : '' ), function(err){
       if ( err )  callback('processImage error');
       else        callback();
     });

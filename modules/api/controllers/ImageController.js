@@ -46,18 +46,18 @@ function deleteImages(model, id, query, callback) {
 function getSizes(model) {
   if ( model == 'slider' )
     return [
-      { mode: 'crop', width: 1200, height: 510 },
+      { mode: 'crop', width: 1200, height: 510, quality: 100 },
       { mode: 'crop', width: 240, height: 102, prefix: 'thumb' }
     ];
   else if ( model == 'project-cover' )
     return [
-      { mode: 'crop', width: 280, height: 320, prefix: 's' },
+      { mode: 'crop', width: 280, height: 320, prefix: 's', quality: 100 },
       { mode: 'crop', width: 150, height: 150, prefix: 'thumb' }
     ];
   else
     return [
-      { mode: 'scale', width: 1800, height: 800 },
-      { mode: 'crop', width: 280, height: 320, prefix: 's' },
+      { mode: 'scale', width: 1800, height: 800, quality: 100 },
+      { mode: 'crop', width: 280, height: 320, prefix: 's', quality: 100 },
       { mode: 'crop', width: 150, height: 150, prefix: 'thumb' }
     ];
   return null;
