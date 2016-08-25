@@ -8,6 +8,7 @@ var config          = require('./config/config.js');
 var autoIncrement   = require('mongoose-auto-increment');
 var moment          = require('moment');
 var cookieSession   = require('cookie-session');
+var httpProxy       = require('http-proxy');
 
 //  Startup
 console.log('ENV: ' + ( process.env.ENV || 'development' ) );
@@ -15,6 +16,14 @@ app.settings.env = process.env.ENV || 'development';
 
 //  Logger
 app.use(morgan('dev'));
+
+//  Ghost blog proxy
+var proxy = new httpProxy.createProxyServer();
+app.route('/blog*').all(function (req, res, next) {
+    proxy.web(req, res, {
+        target: config.blogUrl
+    });
+});
 
 //  Database
 mongoose.connect(config.db);

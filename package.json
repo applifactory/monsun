@@ -28,6 +28,7 @@
     "gulp-nodemon": "^1.0.5",
     "gulp-rename": "^1.2.0",
     "gulp-stylus": "^2.0.0",
+    "http-proxy": "^1.14.0",
     "jade": "^1.9.1",
     "jeet": "^6.1.2",
     "jsdom": "^3.1.2",
