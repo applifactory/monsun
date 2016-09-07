@@ -19,7 +19,6 @@ block content
         
     .description
       .column(data-text=isAdmin ? "#{prefix}/studio/description" : null, editor=isAdmin ? "true" : null) !{getText(prefix+"/studio/description")}
-      .column(data-text=isAdmin ? "#{prefix}/studio/description2" : null, editor=isAdmin ? "true" : null) !{getText(prefix+"/studio/description2")}
     
     if isAdmin
       .testimonials(ng-controller="TestimonialController" ng-init="init('#{language}')")
