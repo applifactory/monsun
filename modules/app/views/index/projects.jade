@@ -31,7 +31,7 @@ block content
               a(href="#{prefix}#{projectsPrefix}/#{project.category}/#{project.link}/#{project._id}")
                 - image = project.images && project.images.length ? project.images[0] : null
                 if image
-                  img(src="/fx/s-#{image.file}")
+                  img(src="/fx/s-#{image.file}" alt="#{project.name}#{project.year ? ' | ' + project.year : ''}")
                 .description
                   | #{project.name}
                   br
