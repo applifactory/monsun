@@ -101,7 +101,7 @@ module.exports.sort = function(req, res) {
 };
 
 module.exports.update = function(req, res) {
-  if ( req.params.id && ( req.body.hasOwnProperty('description') || req.body.hasOwnProperty('link') ) ) {
+  if ( req.params.id && ( req.body.hasOwnProperty('description') || req.body.hasOwnProperty('link') || req.body.hasOwnProperty('alt') ) ) {
     var update = {};
     if ( req.body.hasOwnProperty('description') )
       update.description = req.body.description;

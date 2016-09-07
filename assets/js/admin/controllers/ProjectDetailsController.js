@@ -22,6 +22,29 @@ app.controller('ProjectDetailsController', function($scope, ProjectService, Imag
     var update = {_id: id};
     update[attr] = value;
     ImageService.update(update);
+    if ( dialog ) {
+      if ( $scope.currentImage && attr == 'alt' ) {
+        $scope.currentImage.alt = value;
+      }
+      dialog.close();
+      dialog = null;
+    }
+  }
+
+  $scope.editImageAlt = function(image) {
+    $scope.currentImage = image;
+    $scope.imageAlt = (image.alt || '') + '';
+    dialog = ngDialog.open({
+      template:
+        '<div>Image description</div>' +
+        '<input type="text" ng-model="imageAlt"/>' +
+        '<div class="tools">' +
+          '<div class="button" ng-click="updateImage(currentImage._id, \'alt\', imageAlt)">Save image</div>' +
+        '</div>',
+      plain: true,
+      scope: $scope
+    });
+
   }
 
   $scope.upload = function($files) {

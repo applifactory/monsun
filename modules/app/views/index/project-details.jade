@@ -19,12 +19,12 @@ block content
       .thumbs(data-images="#{JSON.stringify(project.images)}", ng-sortable="sortConfig")
         .img(ng-repeat="image in images")
           i.icon-cancel(ng-click="deleteImage(image, $index)")
-          img(ng-src="/fx/{{image.file}}")
+          img(ng-src="/fx/{{image.file}}" ng-click="editImageAlt(image)")
           .description(data-text="description", on-update="updateImage(image._id, attr, value)", ng-model="image.description") 
     else
       each image in project.images
         .img
-          img(src="/fx/#{image.file}")
+          img(src="/fx/#{image.file}" alt=image.alt)
           .description !{image.description}
     
     .info
