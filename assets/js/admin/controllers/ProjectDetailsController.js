@@ -3,7 +3,6 @@ app.controller('ProjectDetailsController', function($scope, ProjectService, Imag
   var dialog;
 
   $scope.init = function(language, id, category) {
-    console.log(language, id, category);
     $scope.id = id;
     $scope.language = language;
     $scope.category = category;
