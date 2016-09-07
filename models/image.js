@@ -10,6 +10,7 @@ var ImageSchema = new Schema({
   project: { type: Number, ref: 'Project', childPath: 'images' },
   slider: Number,
   link: String,
+  alt: String,
   cover: { type: Boolean, default: false },
   sortOrder: { type: Number, default: 1000 }
 });

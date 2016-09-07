@@ -4,31 +4,37 @@ app.controller('SliderController', function($scope, ImageService, ngDialog){
   var dialog = null;
   var sliderIndex = thumbs.dataset.index;
   $scope.slides = thumbs ? JSON.parse(thumbs.dataset.slides) : [];
-  
+
   $scope.editSlide = function(slide) {
 
     $scope.currentSlide = slide;
     $scope.slideLink = (slide.link || '') + '';
+    $scope.slideAlt = (slide.alt || '') + '';
 
     dialog = ngDialog.open({
       template:
         '<div>Slide link</div>' +
         '<input type="text" placeholder="http://google.com/ or /architecture" ng-model="slideLink"/>' +
+        '<br />' +
+        '<div>Image description</div>' +
+        '<input type="text" ng-model="slideAlt"/>' +
         '<div class="tools">' +
-          '<div class="button" ng-click="updateSlide(slideLink)">Save slide</div>' +
+          '<div class="button" ng-click="updateSlide(slideLink, slideAlt)">Save slide</div>' +
         '</div>',
       plain: true,
       scope: $scope
     });
   }
 
-  $scope.updateSlide = function(link) {
+  $scope.updateSlide = function(link, alt) {
     var update = {
       _id: $scope.currentSlide._id,
-      link: link
+      link: link,
+      alt: alt
     };
     ImageService.update(update).then(function(){
       $scope.currentSlide.link = link;
+      $scope.currentSlide.alt = alt;
     });
     dialog.close();
   }

@@ -18,10 +18,10 @@ block content
         each slide, index in slides
           if (slide.link && slide.link.length)
             a.slide(href="#{slide.link}", class=!index ? "active" : null)
-              img(src="/fx/#{slide.file}")
+              img(src="/fx/#{slide.file}" alt=slide.alt)
           else
             .slide(class=!index ? "active" : null)
-              img(src="/fx/#{slide.file}")
+              img(src="/fx/#{slide.file}" alt=slide.alt)
         ul.nav
           each slide, index in slides
             li(class=!index ? "active" : null) #{index+1}

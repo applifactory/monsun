@@ -107,6 +107,8 @@ module.exports.update = function(req, res) {
       update.description = req.body.description;
     if ( req.body.hasOwnProperty('link') )
       update.link = req.body.link;
+    if ( req.body.hasOwnProperty('alt') )
+      update.alt = req.body.alt;
     Image.findByIdAndUpdate(req.params.id, { $set: update }, function (err, element) {
       res.end();
     });
