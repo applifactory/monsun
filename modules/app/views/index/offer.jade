@@ -10,7 +10,7 @@ block content
         | !{getText(prefix+"/offer/title")}
     ul
       li
-        .title(data-text=isAdmin ? "#{prefix}/offer/p1/title" : null)
+        h3.title(data-text=isAdmin ? "#{prefix}/offer/p1/title" : null)
           | !{getText(prefix+"/offer/p1/title")}
         .description(data-text=isAdmin ? "#{prefix}/offer/p1/description" : null)
           | !{getText(prefix+"/offer/p1/description")}
@@ -18,7 +18,7 @@ block content
           | !{getText(prefix+"/offer/p1/items")}
         
       li
-        .title(data-text=isAdmin ? "#{prefix}/offer/p2/title" : null)
+        h3.title(data-text=isAdmin ? "#{prefix}/offer/p2/title" : null)
           | !{getText(prefix+"/offer/p2/title")}
         .description(data-text=isAdmin ? "#{prefix}/offer/p2/description" : null)
           | !{getText(prefix+"/offer/p2/description")}
@@ -26,7 +26,7 @@ block content
           | !{getText(prefix+"/offer/p2/items")}
 
       li
-        .title(data-text=isAdmin ? "#{prefix}/offer/p3/title" : null)
+        h3.title(data-text=isAdmin ? "#{prefix}/offer/p3/title" : null)
           | !{getText(prefix+"/offer/p3/title")}
         .description(data-text=isAdmin ? "#{prefix}/offer/p3/description" : null)
           | !{getText(prefix+"/offer/p3/description")}
